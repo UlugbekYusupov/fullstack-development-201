@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: node_app
+    ports:
+      - "3001:3001"   
+    volumes:
+      - .:/app        
+      - /app/node_modules 
+    environment:
+      - NODE_ENV=development
+    command: npm start
