@@ -32,7 +32,7 @@ console.log("Qolgan pul:", remaining.toFixed(2));
 if (remaining < 0) {
   console.log("Siz byudjetdan oshib ketdingiz!");
 } 
-
+ 
 
 // Exercise 4
 console.log(!!"false" == !!"true");
