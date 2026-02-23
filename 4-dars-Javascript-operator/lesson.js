@@ -20,14 +20,14 @@
 
 
 
-//Challenge-3
-// let n = +prompt()
-// let ans = 0
-// while (n > 0) {
-//     ans = n % 10 > ans ? n % 10 : ans
-//     n = parseInt(n / 10)
-// }
-// console.log(ans)
+Challenge-3
+let n = +prompt()
+let ans = 0
+while (n > 0) {
+    ans = n % 10 > ans ? n % 10 : ans
+    n = parseInt(n / 10)
+}
+console.log(ans)
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-//Challenge-5
+// Challenge-5
 // let n = +prompt()
 // let ans = 0
 // while (n > 0) {
@@ -50,3 +50,6 @@
 //     n = parseInt(n / 10)
 // }
 // console.log(ans)
+
+
+
