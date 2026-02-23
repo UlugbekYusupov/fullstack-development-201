@@ -1,0 +1,227 @@
+Asosiy reja:
+     - Execution Context nima?
+     - Global Execution Context nima?
+     - Functional Execution Context nima?
+     - Eval Execution Context nima?
+     - Call Stack tushunchasi nima?
+     - Event Loop nima?
+     - const, let, var o'zgaruvchilarning farqlari?
+     - Lexical Environtment, Variable Environtment, Private Environtment bular nima?
+     - Creation Phase, Execute Phase farqi!?
+     - Global Object bu nima?
+     - Hoisting nima?
+
+JavaScript Execution Model: Asosiy Nazariy Tushunchalar
+Kirish
+
+JavaScript — bu bir oqimli (single-threaded), interpretatsiya qilinadigan dasturlash tili bo‘lib, aniq belgilangan bajarilish modeli asosida ishlaydi. JavaScript ichki mexanizmini tushunish dasturchiga kodning qanday ishlashini, xotira qanday boshqarilishini, asynchronous jarayonlar qanday bajarilishini va scope qanday ishlashini chuqur anglash imkonini beradi.
+
+Ushbu ishda JavaScript’ning asosiy ichki tushunchalari — Execution Context, Call Stack, Event Loop, o‘zgaruvchilar xatti-harakati va boshqa muhim komponentlar nazariy jihatdan tahlil qilinadi.
+
+1. Execution Context nima?
+
+Execution Context — bu JavaScript kodi bajariladigan muhitdir. Har safar dastur ishga tushganda yoki funksiya chaqirilganda yangi execution context yaratiladi.
+
+Har bir execution context quyidagi tarkibiy qismlardan iborat:
+
+Lexical Environment
+
+Variable Environment
+
+This binding
+
+Execution context’lar Call Stack orqali boshqariladi.
+
+JavaScript’da uch turdagi execution context mavjud:
+
+Global Execution Context
+
+Function Execution Context
+
+Eval Execution Context
+
+2. Global Execution Context (GEC)
+
+Global Execution Context dastur birinchi marta ishga tushirilganda yaratiladi. Har bir JavaScript dasturida faqat bitta global execution context mavjud bo‘ladi.
+
+Uning asosiy vazifalari:
+
+Global object yaratish
+
+this ni global object ga bog‘lash
+
+Global o‘zgaruvchilar va funksiyalarni xotirada joylashtirish
+
+Brauzer muhitida global object — window.
+Node.js muhitida global object — global.
+
+Global scope’da var orqali e’lon qilingan o‘zgaruvchilar global object’ga biriktiriladi.
+
+3. Function Execution Context (FEC)
+
+Har safar funksiya chaqirilganda yangi Function Execution Context yaratiladi.
+
+Har bir FEC quyidagilarga ega:
+
+O‘zining variable environment’i
+
+O‘zining lexical environment’i
+
+O‘zining this binding’i
+
+Bir nechta funksiya bir vaqtning o‘zida chaqirilsa, ular Call Stack’da tartib bilan joylashadi.
+
+4. Eval Execution Context
+
+Agar eval() funksiyasi orqali kod bajarilsa, alohida execution context yaratiladi.
+
+Masalan:
+
+eval("var a = 10");
+
+
+Ammo zamonaviy dasturlashda eval() xavfsizlik va samaradorlik sababli tavsiya etilmaydi.
+
+5. Call Stack
+
+Call Stack — bu JavaScript engine tomonidan execution context’larni boshqarish uchun ishlatiladigan ma’lumotlar tuzilmasidir.
+
+U LIFO (Last In, First Out) prinsipi asosida ishlaydi.
+
+Funksiya chaqirilganda → context stack’ga qo‘shiladi
+
+Funksiya tugaganda → context stack’dan chiqariladi
+
+Agar cheksiz rekursiya yuz bersa, “Maximum call stack size exceeded” xatosi paydo bo‘ladi.
+
+6. Event Loop
+
+JavaScript bir oqimli bo‘lgani sababli bir vaqtning o‘zida faqat bitta operatsiyani bajaradi. Shunga qaramay, u asynchronous ishlashni qo‘llab-quvvatlaydi.
+
+Jarayon quyidagicha:
+
+Synchronous kod Call Stack’da bajariladi
+
+Asynchronous operatsiyalar (masalan, setTimeout, fetch) Web API’ga yuboriladi
+
+Tayyor bo‘lgan callback’lar Callback Queue’ga joylashtiriladi
+
+Event Loop Call Stack’ni kuzatadi
+
+Agar stack bo‘sh bo‘lsa, queue’dagi vazifani stack’ga o‘tkazadi
+
+Bu mexanizm JavaScript’ga bloklanmasdan ishlash imkonini beradi.
+
+7. var, let va const farqlari
+var
+
+Function scope
+
+Hoisting qilinadi va undefined bilan boshlanadi
+
+Qayta e’lon qilish mumkin
+
+Global scope’da global object’ga biriktiriladi
+
+let
+
+Block scope
+
+Hoisting qilinadi, lekin Temporal Dead Zone mavjud
+
+Qayta e’lon qilib bo‘lmaydi
+
+Global object’ga biriktirilmaydi
+
+const
+
+Block scope
+
+E’lon qilish vaqtida qiymat berilishi shart
+
+Qayta qiymat berib bo‘lmaydi
+
+Global object’ga biriktirilmaydi
+
+8. Lexical Environment, Variable Environment va Private Environment
+Lexical Environment
+
+Lexical Environment — bu o‘zgaruvchilar va funksiyalarni saqlovchi struktura bo‘lib, tashqi scope bilan bog‘lanishni ham o‘z ichiga oladi.
+
+U quyidagilardan iborat:
+
+Environment Record
+
+Outer Environment Reference
+
+Bu mexanizm scope chain’ni hosil qiladi.
+
+Variable Environment
+
+Variable Environment asosan var va function declaration’larni saqlaydi.
+
+U Lexical Environment’ga o‘xshash bo‘lsa-da, ECMAScript spetsifikatsiyasida alohida tushuncha sifatida ko‘rsatilgan.
+
+Private Environment
+
+Private Environment zamonaviy JavaScript class’laridagi #private maydonlarni boshqaradi.
+
+U encapsulation (yashirish) prinsipini ta’minlaydi.
+
+9. Creation Phase va Execution Phase
+
+Har bir execution context ikki bosqichdan o‘tadi.
+
+Creation Phase
+
+Bu bosqichda:
+
+O‘zgaruvchilar uchun xotira ajratiladi
+
+var → undefined bilan boshlanadi
+
+let va const → Temporal Dead Zone’da turadi
+
+Funksiya deklaratsiyalari to‘liq yuklanadi
+
+Scope chain yaratiladi
+
+Execution Phase
+
+Bu bosqichda:
+
+Kod satrma-satr bajariladi
+
+O‘zgaruvchilarga qiymat beriladi
+
+Funksiyalar chaqiriladi
+
+10. Global Object
+
+Global Object — bu global execution context yaratilganda hosil bo‘ladigan obyekt.
+
+Brauzerda: window
+Node.js’da: global
+
+U quyidagilarni o‘z ichiga oladi:
+
+Built-in funksiyalar (setTimeout, console va boshqalar)
+
+Global o‘zgaruvchilar (var orqali)
+
+Standart obyektlar
+
+11. Hoisting
+
+Hoisting — bu JavaScript’da deklaratsiyalarning creation phase vaqtida yuqoriga ko‘tarilishi jarayonidir.
+Function declaration to‘liq hoisting qilinadi
+
+var hoisting qilinadi va undefined bilan boshlanadi
+
+let va const hoisting qilinadi, lekin Temporal Dead Zone sababli ishlatib bo‘lmaydi
+
+Hoisting JavaScript kodining ichki ishlashini tushunishda muhim ahamiyatga ega.
+
+Xulosa
+JavaScript’ning execution modeli Execution Context, Call Stack va Event Loop tushunchalariga asoslanadi. Ushbu mexanizmlarni chuqur tushunish dasturchiga kodni samarali, xavfsiz va optimallashtirilgan tarzda yozish imkonini beradi.
+Ayniqsa Node.js va zamonaviy frontend texnologiyalar bilan ishlashda ushbu nazariy asoslar muhim ahamiyat kasb etadi.
