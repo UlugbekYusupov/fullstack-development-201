@@ -1,0 +1,6 @@
+let sum = parseFloat(prompt())
+let a = parseFloat(prompt())
+let b = parseFloat(prompt())
+let c = parseFloat(prompt())
+sum -= (a + b + c)
+console.log(sum < 0 ? "False " + sum.toFixed(2) : "True " + sum.toFixed(2))
