@@ -1,0 +1,9 @@
+console.log("5" + 5) // "55"
+console.log("5" - 5) // 0
+console.log("5" * "2") // 10
+console.log("10" / 2) // 5
+console.log(5 + true) // 6    
+console.log("10" - false) // 10
+console.log("5" + true) // "5true"
+console.log("5" + null) // "5null"
+console.log("5" + undefined) // "5undefined"
