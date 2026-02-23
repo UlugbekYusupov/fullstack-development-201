@@ -11,4 +11,6 @@ services:
       - /app/node_modules 
     environment:
       - NODE_ENV=development
-    command: npm start
+    stdin_open: true
+    tty: true
+    command: sh
