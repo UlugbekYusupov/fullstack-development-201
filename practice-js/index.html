@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Task 1
+        var a = 7;
+        console.log(`${a} is ${a % 2 == 0 ? 'even' : 'odd'}`)
+
+        let n = Number("1234");
+        let reversed = 0;
+
+        while (n > 0) {
+            reversed = reversed * 10 + (n % 10);
+            n = Math.floor(n / 10);
+        }
+
+        console.log(reversed)
+
+        // Task 2
+
+        var input = "40907845";
+        var num = Number(input);
+
+        var eng_katta = 0
+        while (num > 0) {
+            eng_katta = eng_katta < num % 10 ? num % 10 : eng_katta;
+            num = Math.floor(num / 10);
+        }
+
+        console.log(eng_katta)
+
+        // Task 3
+
+        var input = "787445";
+        var num = Number(input);
+
+        var summ = 0
+        while (num > 0) {
+            summ += num % 10;
+            num = Math.floor(num / 10);
+        }
+
+        console.log(`Yig'indi: ${summ}`)
+
+        // Task 4
+
+        var input = "787445";
+        var num = Number(input);
+
+        var summ = 0
+        while (num > 0) {
+            summ += num % 10;
+            num = Math.floor(num / 10);
+        }
+
+        console.log(`Yig'indi: ${summ}`)
+
+        // Task 5 ------------------
+
+        var input = "7857820";
+        console.log(`${input.length} ta raqam bor`)
+
+    </script>
+</body>
+
+</html>
