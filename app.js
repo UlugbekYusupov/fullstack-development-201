@@ -71,3 +71,21 @@ let n = prompt()
 let p = n.length
 n = parseInt(n)
 console.log(arm(n, p) ? "Yes" : "No")
+
+// seventh task
+
+let students = {"David": 80, "Viboth" : 77, "Annurbek" : 95, "Aziz": 88, "Sherdil": 56}
+
+for (const student in students){
+  if(students[student] <= 60){
+    console.log(`${student} is equal F`)
+  }else if (students[student] <= 70){
+    console.log(`${student} is equal D`)
+  }else if (students[student] <= 80){
+    console.log(`${student} is equal C`)
+  }else if (students[student] <= 90){
+    console.log(`${student} is equal B`)
+  }else if (students[student] <= 100){
+    console.log(`${student} is equal A`)
+  }
+}
