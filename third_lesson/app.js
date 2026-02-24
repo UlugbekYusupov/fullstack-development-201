@@ -51,20 +51,25 @@ for (let i = 1; i <= 100; i++) {
 }
 
 // fifth task
-console.log("Armstrong numbers of 3 digits:");
 
-for (let num = 100; num <= 999; num++) {
-  const digit1 = Math.floor(num / 100);
-  const digit2 = Math.floor((num % 100) / 10);
-  const digit3 = num % 10;
-  
-  const sumOfCubes = (digit1 ** 3) + (digit2 ** 3) + (digit3 ** 3);
-  
-  if (sumOfCubes === num) {
-    console.log(num);
-  }
+function Armstrong(n, k) {
+    let sum = 0;
+    let num = n;
+    while (n != 0) {
+        sum += (n % 10) ** k;
+        n = Math.floor(n / 10);
+    }
+    if (sum === num) {
+      console.log(`${num} is an Armstrong number`);
+    } else {
+      console.log(`${num} is not an Armstrong number`);
+    }
 }
 
+let n = prompt("Enter a number:");
+let k = n.length;
+n = parseInt(n);
+Armstrong(n, k);
 // sixth task
 
 students = {David : 80, Vinoth: 77, Divya: 88, Ishitha: 95, Thomas: 68};
