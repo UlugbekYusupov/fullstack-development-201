@@ -1,77 +1,167 @@
-// console.log("5" + 5); // "55"
-// console.log("5" - 5); // 0
-// console.log("5" * "2"); // 10
-// console.log("10" / 2); // 5
-// console.log(5 + true); // 6
-// console.log("10" - true); // 9
-// console.log("5" + true); // "5true"
-// console.log(5 + null); // 5
-// console.log(5 + undefined); // NaN
+// console.log(username);
+// var username = "Ulugbek";
 
-// let num = Number("200") + 50;
-// console.log(num); // 250
+// // console.log(age);
+// // let age = 20;
 
-// let age = String(25) + " years old";
-// console.log(age); // "25 years old"
-
-// console.log(Boolean("false"));
-// // true (chunki bo'sh bo'lmagan string har doim true)
-
-// console.log("10" - true);
-// // 9 (true = 1, 10 - 1 = 9)
-
-// const celsius = 25;
-
-// let fahrenheit = (celsius * 9) / 5 + 32;
-
-// console.log("Celsius:", celsius);
-// console.log("Fahrenheit:", fahrenheit);
-
-// let budget = Number(prompt("Enter your total budget:"));
-
-// let expense1 = Number(prompt("Enter expense 1:"));
-// let expense2 = Number(prompt("Enter expense 2:"));
-// let expense3 = Number(prompt("Enter expense 3:"));
-
-// let totalExpenses = expense1 + expense2 + expense3;
-// let remaining = budget - totalExpenses;
-
-// console.log("Remaining budget:", remaining.toFixed(2));
-
-// if (remaining < 0) {
-//   console.log("Warning: You have overspent!");
+// function greet(sayHello) {
+//   sayHello();
 // }
 
-let n = Number(prompt("n sonini kiriting:"));
+// greet(function () {
+//   console.log("Bu callback");
+// });
 
-let evenCount = Math.floor(n / 2);
-let oddCount = n - evenCount;
+// Array.prototype.getValues = function () {
+//   console.log("Bu Array prototypedan kelyapdi");
+// };
 
-console.log("Juft sonlar soni:", evenCount);
-console.log("Toq sonlar soni:", oddCount);
+// Array().getValues();
 
-let num = Number(prompt("Son kiriting:"));
-let reversed = 0;
+// for (let i = 1; i <= 10; i++) {
+//   console.log(i);
+// }
 
-for (; num > 0; ) {
-  let lastDigit = num % 10;
-  reversed = reversed * 10 + lastDigit;
-  num = Math.floor(num / 10);
+// let a = 0;
+// while (a < 10) {
+//   console.log(a);
+//   a++;
+// }
+
+// let b = 1;
+// do {
+//   console.log(b);
+//   b++;
+// } while (b < 10);
+
+// const user = {
+//   username: "Ulugbek",
+//   age: 30,
+//   country: "Uzbekistan",
+// };
+
+// const values = Object.values(user);
+// const keys = Object.keys(user);
+
+// console.log(values);
+// console.log(keys);
+
+// for (const key in user) {
+//   const element = user[key];
+//   console.log(element);
+// }
+
+// for (const element of values) {
+//   console.log(element);
+// }
+
+//1
+let a = 10;
+let b = 20;
+
+if (a > b) {
+  console.log(a + " is larger");
+} else if (b > a) {
+  console.log(b + " is larger");
+} else {
+  console.log("Both are equal");
 }
 
-console.log("Teskari son:", reversed);
+//2
+let x = 3;
+let y = -7;
+let z = 2;
 
-let number = Number(prompt("Son kiriting:"));
-let maxDigit = 0;
+let product = x * y * z;
 
-for (; number > 0; ) {
-  let digit = number % 10;
+if (product > 0) {
+  alert("The sign is +");
+} else if (product < 0) {
+  alert("The sign is -");
+} else {
+  alert("The sign is 0");
+}
 
-  if (digit > maxDigit) {
-    maxDigit = digit;
+//3
+let aa = 0;
+let bb = -1;
+let cc = 4;
+
+let arr = [aa, bb, cc];
+arr.sort(function (x, y) {
+  return y - x;
+});
+
+alert(arr.join(", "));
+
+//4
+for (let i = 0; i <= 15; i++) {
+  if (i % 2 === 0) {
+    console.log(i + " is even");
+  } else {
+    console.log(i + " is odd");
+  }
+}
+
+//5
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+  } else {
+    console.log(i);
+  }
+}
+
+//6
+for (let i = 100; i <= 999; i++) {
+  let num = i;
+  let sum = 0;
+
+  while (num > 0) {
+    let digit = num % 10;
+    sum += digit ** 3;
+    num = Math.floor(num / 10);
   }
 
-  number = Math.floor(number / 10);
+  if (sum === i) {
+    console.log(i);
+  }
 }
 
-console.log("Eng katta raqam:", maxDigit);
+//7
+let students = [
+  { name: "David", marks: 80 },
+  { name: "Vinoth", marks: 77 },
+  { name: "Divya", marks: 88 },
+  { name: "Ishitha", marks: 95 },
+  { name: "Thomas", marks: 68 },
+];
+
+let total = 0;
+
+for (let i = 0; i < students.length; i++) {
+  total += students[i].marks;
+}
+
+let average = total / students.length;
+console.log("Average marks: " + average);
+
+let grade;
+
+if (average < 60) {
+  grade = "F";
+} else if (average < 70) {
+  grade = "D";
+} else if (average < 80) {
+  grade = "C";
+} else if (average < 90) {
+  grade = "B";
+} else {
+  grade = "A";
+}
+
+console.log("Grade: " + grade);
