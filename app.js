@@ -140,3 +140,147 @@
 // }
 
 // console.log("Raqamlar soni:", count);
+
+
+
+
+
+
+
+
+
+// 24.02.2026
+//  Mavzu: Control Structure
+
+
+// 1-mashq
+
+// let a = 3;
+// let b = -7;
+// let c = 2;
+
+// let product = a * b * c;
+
+// if (product > 0) {
+//     alert("The sign is +");
+// } else if (product < 0) {
+//     alert("The sign is -");
+// } else {
+//     alert("The product is 0");
+// }
+
+
+// 2-mashq
+
+// let a = 0;
+// let b = -1;
+// let c = 4;
+
+// let largest, middle, smallest;
+
+// if (a >= b && a >= c) {
+//     largest = a;
+//     if (b >= c) {
+//         middle = b;
+//         smallest = c;
+//     } else {
+//         middle = c;
+//         smallest = b;
+//     }
+// } else if (b >= a && b >= c) {
+//     largest = b;
+//     if (a >= c) {
+//         middle = a;
+//         smallest = c;
+//     } else {
+//         middle = c;
+//         smallest = a;
+//     }
+// } else {
+//     largest = c;
+//     if (a >= b) {
+//         middle = a;
+//         smallest = b;
+//     } else {
+//         middle = b;
+//         smallest = a;
+//     }
+// }
+
+// alert(largest + ", " + middle + ", " + smallest);
+
+
+
+// 3-mashq
+
+// for (let i = 0; i <= 15; i++) {
+//     if (i % 2 === 0) {
+//         console.log(i + " is even");
+//     } else {
+//         console.log(i + " is odd");
+//     }
+// }
+
+
+
+// 4-mashq
+
+// for (let i = 1; i <= 100; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//         console.log("Fizz");
+//     } else if (i % 5 === 0) {
+//         console.log("Buzz");
+//     } else {
+//         console.log(i);
+//     }
+// }
+
+
+
+// 5-mashq
+
+// for (let num = 100; num <= 999; num++) {
+//     let sum = 0;
+//     let temp = num;
+
+//     while (temp > 0) {
+//         let digit = temp % 10;
+//         sum += digit ** 3;
+//         temp = Math.floor(temp / 10);
+//     }
+
+//     if (sum === num) {
+//         console.log(num + " is an Armstrong number");
+//     }
+// }
+
+
+
+// 6-mashq
+
+// let students = ["David", "Vinoth", "Divya", "Ishitha", "Thomas"];
+// let marks = [80, 77, 88, 95, 68];
+
+// let total = 0;
+// for (let i = 0; i < marks.length; i++) {
+//     total += marks[i];
+// }
+// let average = total / marks.length;
+// console.log("Average marks: " + average);
+
+// let grade;
+// if (average < 60) {
+//     grade = "F";
+// } else if (average < 70) {
+//     grade = "D";
+// } else if (average < 80) {
+//     grade = "C";
+// } else if (average < 90) {
+//     grade = "B";
+// } else {
+//     grade = "A";
+// }
+
+// console.log("Grade: " + grade);
