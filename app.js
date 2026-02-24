@@ -1,22 +1,6 @@
+
+
 // // lecture 4 Practice
-// My hometown is Chirchiq. It is in Tashkent region. 
-// It is a small and beautiful place.
-//  The air is clean and fresh. 
-// The place is quiet and calm.
-//  I can see mountains. It is a very beautiful view. 
-// There are parks, art centers, and markets. 
-// There are also good places to relax.
-//  I love my hometown very much because it is peaceful and people are friendly.
-
-// Mening tug‘ilgan shahrim Chirchiq . U Toshkent viloyatida joylashgan.
-// U kichik va chiroyli joy.
-// Havosi toza va musaffo.
-// Bu joy tinch va sokin.
-// Men tog‘larni ko‘ra olaman. Bu juda chiroyli manzara.
-// U yerda parklar, san’at markazlari va bozorlar bor.
-// Dam olish uchun ham yaxshi joylar bor.
-// Men o‘z shahrimni juda yaxshi ko‘raman, chunki u tinch va odamlari do‘stona.
-
 // 1
 // let a = 10;
 // let b = 5;
