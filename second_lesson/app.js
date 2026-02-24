@@ -68,3 +68,21 @@ while (num4 > 0) {
 }
 
 console.log("Count of digits: " + countOfDigits);
+
+// Challenge 6
+
+function findLargest(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
+const int1 = 15;
+const int2 = 23;
+
+const largest = findLargest(int1, int2);
+console.log(`The largest integer between ${int1} and ${int2} is: ${largest}`);
+
+
