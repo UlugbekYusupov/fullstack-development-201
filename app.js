@@ -1,19 +1,15 @@
-// challenge 2
+// challenge 3
 
-function isPrime(n){
-    let i=1
+function countDigits(n){
     let cnt = 0;
-    while(i <= n){
-        if(n%i==0){
-            cnt++;
-        }
-        i++;
+
+    while(n > 0){
+        n = Math.floor(n/10)
+        cnt++;
     }
 
-    if(cnt==2){
-        return true
-    } 
-    return false
+    return cnt
 }
 
-console.log(isPrime(4))
+console.log(countDigits(1123))
+
