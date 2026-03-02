@@ -1,28 +1,19 @@
-// challenge 1
+// challenge 2
 
-function greet(name){
-    console.log(`Hello ${name}`)
-}
-
-greet('ava')
-
-
-const greet2 = function(name){
-    console.log(`Hello ${name}`)
-}
-
-greet2('nigga')
-
-const greet3 = (name) => {
-    console.log(`Hello ${name}`)
-}
-
-greet3('Ngga')
-
-const obj = {
-    greet4(name){
-        console.log(`Hello ${name}`)
+function isPrime(n){
+    let i=1
+    let cnt = 0;
+    while(i <= n){
+        if(n%i==0){
+            cnt++;
+        }
+        i++;
     }
+
+    if(cnt==2){
+        return true
+    } 
+    return false
 }
 
-obj.greet4('xa')
+console.log(isPrime(4))
