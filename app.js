@@ -439,3 +439,78 @@
 
 // console.log(add5(10));
 // console.log(add5(20));
+
+
+
+
+// Assignment Challenges
+
+// 1-misol
+// function calculateTotalPrice(pricePerItem, quantity) {
+//     let total = pricePerItem * quantity;
+
+//     if (quantity >= 5) {
+//         total *= 0.8;
+//     } else if (quantity >= 3) {
+//         total *= 0.9;
+//     }
+
+//     return total;
+// }
+
+
+// console.log(calculateTotalPrice(50, 2));
+// console.log(calculateTotalPrice(50, 3));
+// console.log(calculateTotalPrice(50, 5));
+
+
+
+// 2-misol
+// function withdraw(amount) {
+//     if (amount % 10 !== 0) {
+//         return "Error: faqat 10 ning ko‘paytmasi bo‘lishi kerak";
+//     }
+
+//     const bills = [100, 50, 20, 10];
+//     const result = {};
+
+//     for (let bill of bills) {
+//         result[bill] = Math.floor(amount / bill);
+//         amount %= bill;
+//     }
+
+//     return result;
+// }
+
+
+// console.log(withdraw(130));
+// console.log(withdraw(85));
+
+
+// 3-misol
+// function trafficLight() {
+//     console.log("Red 🔴");
+//     setTimeout(() => {
+//         console.log("Green 🟢");
+//         setTimeout(() => {
+//             console.log("Yellow 🟡");
+//             setTimeout(() => {
+//                 trafficLight();
+//             }, 2000);
+//         }, 3000);
+//     }, 5000);
+// }
+
+// trafficLight();
+
+
+// 4-misol
+// function calculateTax(salary) {
+//     if (salary < 10000) return 0;
+//     if (salary < 50000) return salary * 0.1;
+//     return salary * 0.2;
+// }
+
+// console.log(calculateTax(8000));
+// console.log(calculateTax(20000));
+// console.log(calculateTax(60000));
