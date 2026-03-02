@@ -284,3 +284,158 @@
 // }
 
 // console.log("Grade: " + grade);
+
+
+
+
+
+// 02.03.2026
+// Functions in Javascript
+
+
+// 1-misol 
+// function greet(name) {
+//   return `Hello, ${name}!`;
+// }
+// console.log(greet("Odiljon"));
+
+
+// 2-misol
+// function isPrime(n) {
+//   if (n <= 1) return false;
+  
+//   for (let i = 2; i <= Math.sqrt(n); i++) {
+//     if (n % i === 0) {
+//       return false;
+//     }
+//   }
+  
+//   return true;
+// }
+
+// console.log(isPrime(7));
+// console.log(isPrime(10));
+// console.log(isPrime(2));
+// console.log(isPrime(1));
+
+
+
+
+// 3-misol
+// function countDigits(n) {
+//   n = Math.abs(n);
+  
+//   if (n === 0) return 1;
+  
+//   let count = 0;
+  
+//   while (n > 0) {
+//     n = Math.floor(n / 10);
+//     count++;
+//   }
+  
+//   return count;
+// }
+
+// console.log(countDigits(12345));
+// console.log(countDigits(-987));
+// console.log(countDigits(0));
+
+
+// 4-misol
+// function isPalindrome(n) {
+//   if (n < 0) return false;
+  
+//   let original = n;
+//   let reversed = 0;
+  
+//   while (n > 0) {
+//     let digit = n % 10;
+//     reversed = reversed * 10 + digit; 
+//     n = Math.floor(n / 10);
+//   }
+  
+//   return original === reversed;
+// }
+
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(123));
+// console.log(isPalindrome(1221));
+// console.log(isPalindrome(-121));
+
+
+
+// 5-misol
+// function isArmstrong(n) {
+//   if (n < 0) return false;
+  
+//   let original = n;
+//   let digits = 0;
+//   let temp = n;
+
+//   if (n === 0) digits = 1;
+//   while (temp > 0) {
+//     digits++;
+//     temp = Math.floor(temp / 10);
+//   }
+
+//   let sum = 0;
+//   temp = n;
+  
+//   while (temp > 0) {
+//     let digit = temp % 10;
+//     sum += digit ** digits;
+//     temp = Math.floor(temp / 10);
+//   }
+
+//   return sum === original;
+// }
+
+// console.log(isArmstrong(153));
+// console.log(isArmstrong(370));
+// console.log(isArmstrong(371));
+// console.log(isArmstrong(407));
+// console.log(isArmstrong(123));
+
+
+
+
+// 6-misol
+// function createCounter(start) {
+//   let count = start;
+
+//   return {
+//     increment() {
+//       count++;
+//     },
+//     decrement() {
+//       count--;
+//     },
+//     getCount() {
+//       return count;
+//     }
+//   };
+// }
+
+// const counter = createCounter(10);
+
+// counter.increment();
+// counter.increment();
+// console.log(counter.getCount());
+
+// counter.decrement();
+// console.log(counter.getCount());
+
+
+
+// 7-misol
+// function lazyAdder(a) {
+//   return function(b) {
+//     return a + b;
+//   };
+// }
+
+// const add5 = lazyAdder(5);
+
+// console.log(add5(10));
+// console.log(add5(20));
