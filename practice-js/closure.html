@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Closures
+
+        function funksiya() {
+            let son = 0; // Bu ota funksiyaga tegishli o'zgaruvchi
+
+            return function () {
+                son++; // Otasining o'zgaruvchisidan foydalanadi
+                return son;
+            };
+        }
+
+        const sanagich = funksiya();
+
+        /* Shu joyda "funksiya" o'z ishini tugatdi. 
+        U Call Stack'dan o'chib ketdi. Normal holatda `son` o'zgaruvchisi ham 
+        yo'q bo'lib ketishi kerak edi. Hozirgi holat bundan mustasno */
+
+        console.log(sanagich());
+        console.log(sanagich());
+        console.log(sanagich());
+    </script>
+</body>
+
+</html>
