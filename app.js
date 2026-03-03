@@ -56,112 +56,346 @@
 // }
 
 //1
-let a = 10;
-let b = 20;
+// let a = 10;
+// let b = 20;
 
-if (a > b) {
-  console.log(a + " is larger");
-} else if (b > a) {
-  console.log(b + " is larger");
-} else {
-  console.log("Both are equal");
+// if (a > b) {
+//   console.log(a + " is larger");
+// } else if (b > a) {
+//   console.log(b + " is larger");
+// } else {
+//   console.log("Both are equal");
+// }
+
+// //2
+// let x = 3;
+// let y = -7;
+// let z = 2;
+
+// let product = x * y * z;
+
+// if (product > 0) {
+//   alert("The sign is +");
+// } else if (product < 0) {
+//   alert("The sign is -");
+// } else {
+//   alert("The sign is 0");
+// }
+
+// //3
+// let aa = 0;
+// let bb = -1;
+// let cc = 4;
+
+// let arr = [aa, bb, cc];
+// arr.sort(function (x, y) {
+//   return y - x;
+// });
+
+// alert(arr.join(", "));
+
+// //4
+// for (let i = 0; i <= 15; i++) {
+//   if (i % 2 === 0) {
+//     console.log(i + " is even");
+//   } else {
+//     console.log(i + " is odd");
+//   }
+// }
+
+// //5
+// for (let i = 1; i <= 100; i++) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log("FizzBuzz");
+//   } else if (i % 3 === 0) {
+//     console.log("Fizz");
+//   } else if (i % 5 === 0) {
+//     console.log("Buzz");
+//   } else {
+//     console.log(i);
+//   }
+// }
+
+// //6
+// for (let i = 100; i <= 999; i++) {
+//   let num = i;
+//   let sum = 0;
+
+//   while (num > 0) {
+//     let digit = num % 10;
+//     sum += digit ** 3;
+//     num = Math.floor(num / 10);
+//   }
+
+//   if (sum === i) {
+//     console.log(i);
+//   }
+// }
+
+// //7
+// let students = [
+//   { name: "David", marks: 80 },
+//   { name: "Vinoth", marks: 77 },
+//   { name: "Divya", marks: 88 },
+//   { name: "Ishitha", marks: 95 },
+//   { name: "Thomas", marks: 68 },
+// ];
+
+// let total = 0;
+
+// for (let i = 0; i < students.length; i++) {
+//   total += students[i].marks;
+// }
+
+// let average = total / students.length;
+// console.log("Average marks: " + average);
+
+// let grade;
+
+// if (average < 60) {
+//   grade = "F";
+// } else if (average < 70) {
+//   grade = "D";
+// } else if (average < 80) {
+//   grade = "C";
+// } else if (average < 90) {
+//   grade = "B";
+// } else {
+//   grade = "A";
+// }
+
+// console.log("Grade: " + grade);
+
+// 1
+function greet1(name) {
+  return "Hello, " + name + "!";
 }
 
-//2
-let x = 3;
-let y = -7;
-let z = 2;
-
-let product = x * y * z;
-
-if (product > 0) {
-  alert("The sign is +");
-} else if (product < 0) {
-  alert("The sign is -");
-} else {
-  alert("The sign is 0");
+function greet2(name) {
+  return `Hello, ${name}!`;
 }
 
-//3
-let aa = 0;
-let bb = -1;
-let cc = 4;
+const greet3 = (name) => {
+  return `Hello, ${name}!`;
+};
 
-let arr = [aa, bb, cc];
-arr.sort(function (x, y) {
-  return y - x;
-});
+const greet4 = (name) => `Hello, ${name}!`;
 
-alert(arr.join(", "));
+const greet5 = function (name) {
+  return "Hello, " + name + "!";
+};
 
-//4
-for (let i = 0; i <= 15; i++) {
-  if (i % 2 === 0) {
-    console.log(i + " is even");
-  } else {
-    console.log(i + " is odd");
+// 2
+function isPrime(n) {
+  if (n <= 1) return false;
+
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
   }
+
+  return true;
 }
 
-//5
-for (let i = 1; i <= 100; i++) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log("FizzBuzz");
-  } else if (i % 3 === 0) {
-    console.log("Fizz");
-  } else if (i % 5 === 0) {
-    console.log("Buzz");
-  } else {
-    console.log(i);
-  }
+// 3
+function countDigits(n) {
+  return n.toString().length;
 }
 
-//6
-for (let i = 100; i <= 999; i++) {
-  let num = i;
+// 4
+function isPalindrome(n) {
+  let str = n.toString();
+  let reversed = str.split("").reverse().join("");
+  return str === reversed;
+}
+
+// 5
+function isArmstrong(n) {
+  let str = n.toString();
+  let power = str.length;
   let sum = 0;
 
-  while (num > 0) {
-    let digit = num % 10;
-    sum += digit ** 3;
-    num = Math.floor(num / 10);
+  for (let digit of str) {
+    sum += Math.pow(Number(digit), power);
   }
 
-  if (sum === i) {
-    console.log(i);
+  return sum === n;
+}
+
+// 6
+function createCounter(start) {
+  let count = start;
+
+  return {
+    increment() {
+      count++;
+    },
+    decrement() {
+      count--;
+    },
+    getCount() {
+      return count;
+    },
+  };
+}
+
+// 7
+function orderFood(name, address, food) {
+  return `Dear ${name}, your ordered food ${food} will be ready in 15 minutes and will be delivered to your address ${address}.`;
+}
+
+// 8
+function lazyAdder(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+const add5 = lazyAdder(5);
+console.log(add5(10)); // 15
+console.log(add5(20)); // 25
+
+// Assignment 1
+function calculateTotal(price, quantity) {
+  let total = price * quantity;
+
+  if (quantity >= 5) {
+    total *= 0.8;
+  } else if (quantity >= 3) {
+    total *= 0.9;
   }
+
+  return total;
 }
 
-//7
-let students = [
-  { name: "David", marks: 80 },
-  { name: "Vinoth", marks: 77 },
-  { name: "Divya", marks: 88 },
-  { name: "Ishitha", marks: 95 },
-  { name: "Thomas", marks: 68 },
-];
+// Assignment 2
+function checkPassword(password) {
+  let strong =
+    password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[0-9]/.test(password) &&
+    /[!@#$%^&*]/.test(password);
 
-let total = 0;
-
-for (let i = 0; i < students.length; i++) {
-  total += students[i].marks;
+  if (strong) return "Strong";
+  if (password.length >= 6) return "Medium";
+  return "Weak";
 }
 
-let average = total / students.length;
-console.log("Average marks: " + average);
+// Assignment 3
+function atmWithdraw(amount) {
+  if (amount % 10 !== 0) {
+    return "Error: Amount must be multiple of 10";
+  }
 
-let grade;
+  let bills = [100, 50, 20, 10];
+  let result = {};
 
-if (average < 60) {
-  grade = "F";
-} else if (average < 70) {
-  grade = "D";
-} else if (average < 80) {
-  grade = "C";
-} else if (average < 90) {
-  grade = "B";
-} else {
-  grade = "A";
+  for (let bill of bills) {
+    result[bill] = Math.floor(amount / bill);
+    amount %= bill;
+  }
+
+  return result;
 }
 
-console.log("Grade: " + grade);
+// Assignment 4
+function trafficLight() {
+  setTimeout(() => {
+    console.log("Red");
+  }, 0);
+
+  setTimeout(() => {
+    console.log("Green");
+  }, 5000);
+
+  setTimeout(() => {
+    console.log("Yellow");
+  }, 8000);
+}
+
+// Assignment 6
+function bankAccount(initialBalance) {
+  let balance = initialBalance;
+
+  return {
+    deposit(amount) {
+      balance += amount;
+    },
+    withdraw(amount) {
+      if (amount <= balance) {
+        balance -= amount;
+      } else {
+        console.log("Insufficient balance");
+      }
+    },
+    viewBalance() {
+      return balance;
+    },
+  };
+}
+
+// Assignment 7
+function createUser(role) {
+  return {
+    role,
+    canAdd() {
+      return role === "admin";
+    },
+    canEdit() {
+      return role === "admin" || role === "editor";
+    },
+    canDelete() {
+      return role === "admin";
+    },
+    canView() {
+      return true;
+    },
+  };
+}
+
+// Assignment 8
+function calculateTax(income) {
+  if (income < 10000) return 0;
+  if (income <= 50000) return income * 0.1;
+  return income * 0.2;
+}
+
+// bonus 1
+function debounce(fn, delay) {
+  let timer;
+
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn();
+    }, delay);
+  };
+}
+
+// bonus 2
+function throttle(fn, interval) {
+  let lastTime = 0;
+
+  return function () {
+    let now = Date.now();
+    if (now - lastTime >= interval) {
+      lastTime = now;
+      fn();
+    }
+  };
+}
+
+// bonus 3
+function taskScheduler() {
+  let tasks = [];
+
+  return {
+    schedule(task, delay) {
+      let id = setTimeout(task, delay);
+      tasks.push(id);
+    },
+    cancelAll() {
+      tasks.forEach((id) => clearTimeout(id));
+      tasks = [];
+    },
+  };
+}
