@@ -1,0 +1,44 @@
+h1 {
+     color: rgba(43, 248, 35, 0.247) 
+}
+
+h2 {
+     color: #6d421f;
+}
+
+h3 {
+     color: hsl(98 90% 50%)
+}
+
+h4 {
+     color: rgb(88 99 111)
+}
+
+h5 {
+     color: hwb(0 10% 36%)
+}
+
+h6 {
+     color: color(srgb 0.69 0.27 0.17)
+}
+
+.container {
+     background-color: black;
+}
+
+.row {
+     display: flex;
+     flex-direction: row;
+     border: 1px solid rgb(119, 24, 24);
+     border-collapse: collapse;
+}
+
+.text {
+     width: 300px;
+     border-collapse: collapse;
+     border: 1px solid rgb(119, 24, 24);
+     align-self: last baseline;
+     text-shadow: 1px 1px 0px rgba(57, 122, 165, 0.9); /* правильный синтаксис */
+     margin: 0px;
+     padding: 0px;
+}
