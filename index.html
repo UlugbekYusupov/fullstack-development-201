@@ -11,16 +11,34 @@
    
 
     <script>
-        function hisobla(n) {
-    let juft = Math.floor(n / 2);
-    let toq = n - juft;
+       function reverseNumber(num) {
+    let reversed = 0;
+    let isNegative = num < 0;
+    
+    // Agar son manfiy bo'lsa, uni vaqtincha musbatga aylantiramiz
+    if (isNegative) {
+        num = num * -1;
+    }
 
-    console.log(`1 dan ${n} gacha:`);
-    console.log(`Juft sonlar: ${juft} ta`);
-    console.log(`Toq sonlar: ${toq} ta`);
+    // Raqamlarni teskari qilish jarayoni
+    while (num > 0) {
+        let lastDigit = num % 10;      // Oxirgi raqamni olish
+        reversed = (reversed * 10) + lastDigit; // Teskari songa qo'shish
+        num = Math.floor(num / 10);    // Oxirgi raqamni o'chirish
+    }
+
+    // Agar son manfiy bo'lgan bo'lsa, manfiylikni qaytaramiz
+    if (isNegative) {
+        return reversed * -1;
+    }
+
+    return reversed;
 }
 
-hisobla(21);
+// Sinov:
+console.log(reverseNumber(1234)); 
+console.log(reverseNumber(987));  
+console.log(reverseNumber(-561)); 
     </script>
 </body>
 </html>
