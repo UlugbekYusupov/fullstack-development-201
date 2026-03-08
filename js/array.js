@@ -95,7 +95,13 @@ console.log(fruits.indexOf('apple'));
 
 //lastIndexOf()
 console.log(fruits.lastIndexOf('apple')); 
+
 ///join()
+
+
+///// array tasks 
+
+
 
 
 
