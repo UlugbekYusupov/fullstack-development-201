@@ -1,0 +1,707 @@
+// Tursunboyev Odiljon uy ishi
+
+// Exercise 1
+// console.log("5" + 5);
+// console.log("5" - 5);
+// console.log("5" * "2");
+// console.log("10" / 2);
+// console.log(5 + true);
+// console.log("15" - true);
+// console.log("5" + true);
+// console.log(5 + null);
+// console.log(5 + undefined);
+
+// Exercise 2
+// const celsius = 25;
+// const fahrenheit = (celsius * 9 / 5) + 32;
+
+// console.log("Celsius:", celsius);
+// console.log("Fahrenheit:", fahrenheit);
+
+// // Exercise 3
+// let budget = 100;
+
+// let e1 = 40;
+// let e2 = 30;
+// let e3 = 50;
+
+// let remaining = budget - (e1 + e2 + e3);
+
+// console.log("Qolgan pul:", remaining.toFixed(2));
+
+// if (remaining < 0) {
+//   console.log("Siz byudjetdan oshib ketdingiz!");
+// } 
+ 
+
+// Exercise 4
+// console.log(!!"false" == !!"true");
+// console.log(0 || "JavaScript");
+// console.log(" " && 100);
+// console.log(null ?? "Fallback");
+// console.log(undefined ?? "Default Value");
+
+
+// Exercise 5
+// let a = "42";
+// let b = "3.14";
+// let c = "hello";
+// let d = false;
+// let e = null;
+
+// let sum = a+b+d+e;
+
+// console.log(sum);
+
+
+
+
+
+
+
+
+// Sana 23.02.2026
+// Mavzu: Javascript Datatypes
+
+
+// 1-mash
+// let n = 10;
+
+// let juft = 0;
+// let toq = 0;
+
+// for (let i = 1; i <= n; i++) {
+//     if (i % 2 === 0) {
+//         juft++;
+//     } else {
+//         toq++;
+//     }
+// }
+
+// console.log("Juft sonlar soni:", juft);
+// console.log("Toq sonlar soni:", toq);
+
+
+// 2-mashq
+// let n = Number(prompt("Son kiriting:"));
+// let reversed = 0;
+
+// while (n > 0) {
+//     let lastDigit = n % 10;
+//     reversed = reversed * 10 + lastDigit;  
+//     n = Math.floor(n / 10);
+// }
+
+// console.log("Teskari son:", reversed);
+
+
+// 3-mashq 
+// let n = Number(prompt("Son kiriting:"));
+// let max = 0;
+
+// while (n > 0) {
+//     let d = n % 10;
+    
+//     if (d > max) {
+//         max = d;
+//     }
+    
+//     n = Math.floor(n / 10);
+// }
+
+// console.log(max);
+
+
+
+// 4-mashq
+// let n = Number(prompt("Son kiriting:"));
+// let sum = 0;
+
+// while (n > 0) {
+//     let digit = n % 10;
+//     sum = sum + digit;
+//     n = Math.floor(n / 10);
+// }
+
+// console.log("Raqamlar yig‘indisi:", sum);
+
+
+// 5-mashq
+// let n = Number(prompt("Son kiriting:"));
+// let count = 0;
+
+// if (n === 0) {
+//     count = 1;
+// }
+
+// while (n > 0) {
+//     n = Math.floor(n / 10);
+//     count++;
+// }
+
+// console.log("Raqamlar soni:", count);
+
+
+
+
+
+
+
+
+
+// 24.02.2026
+//  Mavzu: Control Structure
+
+
+// 1-mashq
+
+// let a = 3;
+// let b = -7;
+// let c = 2;
+
+// let product = a * b * c;
+
+// if (product > 0) {
+//     alert("The sign is +");
+// } else if (product < 0) {
+//     alert("The sign is -");
+// } else {
+//     alert("The product is 0");
+// }
+
+
+// 2-mashq
+
+// let a = 0;
+// let b = -1;
+// let c = 4;
+
+// let largest, middle, smallest;
+
+// if (a >= b && a >= c) {
+//     largest = a;
+//     if (b >= c) {
+//         middle = b;
+//         smallest = c;
+//     } else {
+//         middle = c;
+//         smallest = b;
+//     }
+// } else if (b >= a && b >= c) {
+//     largest = b;
+//     if (a >= c) {
+//         middle = a;
+//         smallest = c;
+//     } else {
+//         middle = c;
+//         smallest = a;
+//     }
+// } else {
+//     largest = c;
+//     if (a >= b) {
+//         middle = a;
+//         smallest = b;
+//     } else {
+//         middle = b;
+//         smallest = a;
+//     }
+// }
+
+// alert(largest + ", " + middle + ", " + smallest);
+
+
+
+// 3-mashq
+
+// for (let i = 0; i <= 15; i++) {
+//     if (i % 2 === 0) {
+//         console.log(i + " is even");
+//     } else {
+//         console.log(i + " is odd");
+//     }
+// }
+
+
+
+// 4-mashq
+
+// for (let i = 1; i <= 100; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log("FizzBuzz");
+//     } else if (i % 3 === 0) {
+//         console.log("Fizz");
+//     } else if (i % 5 === 0) {
+//         console.log("Buzz");
+//     } else {
+//         console.log(i);
+//     }
+// }
+
+
+
+// 5-mashq
+
+// for (let num = 100; num <= 999; num++) {
+//     let sum = 0;
+//     let temp = num;
+
+//     while (temp > 0) {
+//         let digit = temp % 10;
+//         sum += digit ** 3;
+//         temp = Math.floor(temp / 10);
+//     }
+
+//     if (sum === num) {
+//         console.log(num + " is an Armstrong number");
+//     }
+// }
+
+
+
+// 6-mashq
+
+// let students = ["David", "Vinoth", "Divya", "Ishitha", "Thomas"];
+// let marks = [80, 77, 88, 95, 68];
+
+// let total = 0;
+// for (let i = 0; i < marks.length; i++) {
+//     total += marks[i];
+// }
+// let average = total / marks.length;
+// console.log("Average marks: " + average);
+
+// let grade;
+// if (average < 60) {
+//     grade = "F";
+// } else if (average < 70) {
+//     grade = "D";
+// } else if (average < 80) {
+//     grade = "C";
+// } else if (average < 90) {
+//     grade = "B";
+// } else {
+//     grade = "A";
+// }
+
+// console.log("Grade: " + grade);
+
+
+
+
+
+// 02.03.2026
+// Functions in Javascript
+
+
+// 1-misol 
+// function greet(name) {
+//   return `Hello, ${name}!`;
+// }
+// console.log(greet("Odiljon"));
+
+
+// 2-misol
+// function isPrime(n) {
+//   if (n <= 1) return false;
+  
+//   for (let i = 2; i <= Math.sqrt(n); i++) {
+//     if (n % i === 0) {
+//       return false;
+//     }
+//   }
+  
+//   return true;
+// }
+
+// console.log(isPrime(7));
+// console.log(isPrime(10));
+// console.log(isPrime(2));
+// console.log(isPrime(1));
+
+
+
+
+// 3-misol
+// function countDigits(n) {
+//   n = Math.abs(n);
+  
+//   if (n === 0) return 1;
+  
+//   let count = 0;
+  
+//   while (n > 0) {
+//     n = Math.floor(n / 10);
+//     count++;
+//   }
+  
+//   return count;
+// }
+
+// console.log(countDigits(12345));
+// console.log(countDigits(-987));
+// console.log(countDigits(0));
+
+
+// 4-misol
+// function isPalindrome(n) {
+//   if (n < 0) return false;
+  
+//   let original = n;
+//   let reversed = 0;
+  
+//   while (n > 0) {
+//     let digit = n % 10;
+//     reversed = reversed * 10 + digit; 
+//     n = Math.floor(n / 10);
+//   }
+  
+//   return original === reversed;
+// }
+
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(123));
+// console.log(isPalindrome(1221));
+// console.log(isPalindrome(-121));
+
+
+
+// 5-misol
+// function isArmstrong(n) {
+//   if (n < 0) return false;
+  
+//   let original = n;
+//   let digits = 0;
+//   let temp = n;
+
+//   if (n === 0) digits = 1;
+//   while (temp > 0) {
+//     digits++;
+//     temp = Math.floor(temp / 10);
+//   }
+
+//   let sum = 0;
+//   temp = n;
+  
+//   while (temp > 0) {
+//     let digit = temp % 10;
+//     sum += digit ** digits;
+//     temp = Math.floor(temp / 10);
+//   }
+
+//   return sum === original;
+// }
+
+// console.log(isArmstrong(153));
+// console.log(isArmstrong(370));
+// console.log(isArmstrong(371));
+// console.log(isArmstrong(407));
+// console.log(isArmstrong(123));
+
+
+
+
+// 6-misol
+// function createCounter(start) {
+//   let count = start;
+
+//   return {
+//     increment() {
+//       count++;
+//     },
+//     decrement() {
+//       count--;
+//     },
+//     getCount() {
+//       return count;
+//     }
+//   };
+// }
+
+// const counter = createCounter(10);
+
+// counter.increment();
+// counter.increment();
+// console.log(counter.getCount());
+
+// counter.decrement();
+// console.log(counter.getCount());
+
+
+
+// 7-misol
+// function lazyAdder(a) {
+//   return function(b) {
+//     return a + b;
+//   };
+// }
+
+// const add5 = lazyAdder(5);
+
+// console.log(add5(10));
+// console.log(add5(20));
+
+
+
+
+// Assignment Challenges
+
+// 1-misol
+// function calculateTotalPrice(pricePerItem, quantity) {
+//     let total = pricePerItem * quantity;
+
+//     if (quantity >= 5) {
+//         total *= 0.8;
+//     } else if (quantity >= 3) {
+//         total *= 0.9;
+//     }
+
+//     return total;
+// }
+
+
+// console.log(calculateTotalPrice(50, 2));
+// console.log(calculateTotalPrice(50, 3));
+// console.log(calculateTotalPrice(50, 5));
+
+
+
+// 2-misol
+// function withdraw(amount) {
+//     if (amount % 10 !== 0) {
+//         return "Error: faqat 10 ning ko‘paytmasi bo‘lishi kerak";
+//     }
+
+//     const bills = [100, 50, 20, 10];
+//     const result = {};
+
+//     for (let bill of bills) {
+//         result[bill] = Math.floor(amount / bill);
+//         amount %= bill;
+//     }
+
+//     return result;
+// }
+
+
+// console.log(withdraw(130));
+// console.log(withdraw(85));
+
+
+// 3-misol
+// function trafficLight() {
+//     console.log("Red 🔴");
+//     setTimeout(() => {
+//         console.log("Green 🟢");
+//         setTimeout(() => {
+//             console.log("Yellow 🟡");
+//             setTimeout(() => {
+//                 trafficLight();
+//             }, 2000);
+//         }, 3000);
+//     }, 5000);
+// }
+
+// trafficLight();
+
+
+// 4-misol
+// function calculateTax(salary) {
+//     if (salary < 10000) return 0;
+//     if (salary < 50000) return salary * 0.1;
+//     return salary * 0.2;
+// }
+
+// console.log(calculateTax(8000));
+// console.log(calculateTax(20000));
+// console.log(calculateTax(60000));
+
+
+
+
+// 10.03.2026
+
+// 1-mashq
+// let students = [
+//   { name: "Ali", scores: [60, 70, 80] },
+//   { name: "Vali", scores: [40, 50, 45] },
+//   { name: "Hasan", scores: [90, 85, 88] }
+// ];
+
+// let topName = "";
+// let topAvg = 0;
+
+// for (let i = 0; i < students.length; i++) {
+
+//   let sum = 0;
+
+//   for (let j = 0; j < students[i].scores.length; j++) {
+//     sum += students[i].scores[j];
+//   }
+
+//   let avg = sum / students[i].scores.length;
+
+//   if (avg >= 50) {
+//     console.log(students[i].name + " Passed, Avg: " + avg);
+//   } else {
+//     console.log(students[i].name + " Failed, Avg: " + avg);
+//   }
+
+//   if (avg > topAvg) {
+//     topAvg = avg;
+//     topName = students[i].name;
+//   }
+// }
+
+// console.log("Top student: " + topName);
+
+
+
+// 2-mashq 
+// let cart = [
+//   { id: 1, name: "Phone", price: 500, quantity: 1 },
+//   { id: 2, name: "Headphones", price: 40, quantity: 2 },
+//   { id: 3, name: "Charger", price: 20, quantity: 3 }
+// ];
+
+// let total = 0;
+// let expensive = cart[0];
+
+// for (let i = 0; i < cart.length; i++) {
+
+//   total += cart[i].price * cart[i].quantity;
+
+//   if (cart[i].price > expensive.price) {
+//     expensive = cart[i];
+//   }
+
+// }
+
+// if (total > 100) {
+//   total = total * 0.9;
+// }
+
+// console.log("Total price:", total);
+// console.log("Most expensive item:", expensive.name);
+
+
+
+// 3-mashq
+// let products = [
+//   { id: 1, name: "Laptop", price: 1000, stock: 5 },
+//   { id: 2, name: "Phone", price: 500, stock: 10 },
+//   { id: 3, name: "Tablet", price: 300, stock: 7 }
+// ];
+
+// function addProduct(p) {
+//   products.push(p);
+// }
+
+// function updateStock(id, stock) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].id == id) {
+//       products[i].stock = stock;
+//     }
+//   }
+// }
+
+// function deleteProduct(id) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].id == id) {
+//       products.splice(i, 1);
+//     }
+//   }
+// }
+
+// function findProduct(name) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].name == name) {
+//       console.log(products[i]);
+//     }
+//   }
+// }
+
+// addProduct({ id: 4, name: "Watch", price: 200, stock: 6 });
+// updateStock(2, 20);
+// deleteProduct(3);
+// findProduct("Phone");
+
+// console.log(products);
+
+
+// 4-mashq
+// let posts = [
+//   {author:"Ali", likes:20, comments:5, shares:3},
+//   {author:"Vali", likes:35, comments:7, shares:4}
+// ];
+
+// let max = posts[0];
+
+// for(let i=0;i<posts.length;i++){
+//   if(posts[i].likes > max.likes){
+//     max = posts[i];
+//   }
+// }
+
+// console.log("Most liked:", max.author);
+
+// let total = 0;
+
+// for(let i=0;i<posts.length;i++){
+//   total += posts[i].likes + posts[i].comments + posts[i].shares;
+// }
+
+// console.log("Total engagement:", total);
+
+
+// 5-mashq
+// let teams = [
+//   {name:"Team A", wins:5, losses:2, points:15},
+//   {name:"Team B", wins:7, losses:1, points:21},
+//   {name:"Team C", wins:4, losses:3, points:12}
+// ];
+
+// teams.sort(function(a,b){
+//   return b.points - a.points;
+// });
+
+// console.log("Ranking:", teams);
+
+// let best = teams[0];
+
+// for(let i=0;i<teams.length;i++){
+//   if(teams[i].points > best.points){
+//     best = teams[i];
+//   }
+// }
+
+// console.log("Best team:", best.name);
+
+
+
+// 6-mashq
+// let items = [
+//   {itemName:"Apple", category:"Fruit", stock:30},
+//   {itemName:"Banana", category:"Fruit", stock:10},
+//   {itemName:"Carrot", category:"Vegetable", stock:5}
+// ];
+
+// let fruit = 0;
+// let vegetable = 0;
+
+// for(let i=0;i<items.length;i++){
+//   if(items[i].category == "Fruit"){
+//     fruit += items[i].stock;
+//   }
+//   if(items[i].category == "Vegetable"){
+//     vegetable += items[i].stock;
+//   }
+// }
+
+// console.log("Fruit stock:", fruit);
+// console.log("Vegetable stock:", vegetable);
+
+// for(let i=0;i<items.length;i++){
+//   if(items[i].stock < 10){
+//     console.log("Low stock:", items[i].itemName);
+//   }
+// }
