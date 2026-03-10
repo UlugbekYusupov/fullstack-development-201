@@ -154,3 +154,14 @@ clearBtn.addEventListener('click', () => {
 });
 
 renderTodos();
+
+
+
+
+//// DOM
+
+
+console.log(`window ${window.innerWidth}`)
+console.log(window.location.href)
+
+
