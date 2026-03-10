@@ -522,7 +522,7 @@
 
 // 1-mashq
 // let students = [
-//   { name: "Ali", scores: [60, 70, 80] },
+//   { name: "Ali", scores: [60, 70, 80] },  
 //   { name: "Vali", scores: [40, 50, 45] },
 //   { name: "Hasan", scores: [90, 85, 88] }
 // ];
