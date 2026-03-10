@@ -368,3 +368,199 @@
 // console.log(add5(10));
 // console.log(add5(20));
 
+
+/////////////////////// 10.03.2026 ////////////////////////
+
+/////////////////// 1-mashq ////////////////////
+// let students = [
+//   { name: "Ali", scores: [60, 70, 80] },
+//   { name: "Vali", scores: [40, 50, 45] },
+//   { name: "Hasan", scores: [90, 85, 88] }
+// ];
+
+// let topName = "";
+// let topAvg = 0;
+
+// for (let i = 0; i < students.length; i++) {
+
+//   let sum = 0;
+
+//   for (let j = 0; j < students[i].scores.length; j++) {
+//     sum += students[i].scores[j];
+//   }
+
+//   let avg = sum / students[i].scores.length;
+
+//   if (avg >= 50) {
+//     console.log(students[i].name + " Passed, Avg: " + avg);
+//   } else {
+//     console.log(students[i].name + " Failed, Avg: " + avg);
+//   }
+
+//   if (avg > topAvg) {
+//     topAvg = avg;
+//     topName = students[i].name;
+//   }
+// }
+
+// console.log("Top student: " + topName);
+
+
+
+/////////////////// 2-mashq //////////////////////
+
+// let cart = [
+//   { id: 1, name: "Phone", price: 500, quantity: 1 },
+//   { id: 2, name: "Headphones", price: 40, quantity: 2 },
+//   { id: 3, name: "Charger", price: 20, quantity: 3 }
+// ];
+
+// let total = 0;
+// let expensive = cart[0];
+
+// for (let i = 0; i < cart.length; i++) {
+
+//   total += cart[i].price * cart[i].quantity;
+
+//   if (cart[i].price > expensive.price) {
+//     expensive = cart[i];
+//   }
+
+// }
+
+// if (total > 100) {
+//   total = total * 0.9;
+// }
+
+// console.log("Total price:", total);
+// console.log("Most expensive item:", expensive.name);
+
+
+
+
+/////////////////// 3-mashq ////////////////////
+
+// let products = [
+//   { id: 1, name: "Laptop", price: 1000, stock: 5 },
+//   { id: 2, name: "Phone", price: 500, stock: 10 },
+//   { id: 3, name: "Tablet", price: 300, stock: 7 }
+// ];
+
+// function addProduct(p) {
+//   products.push(p);
+// }
+
+// function updateStock(id, stock) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].id == id) {
+//       products[i].stock = stock;
+//     }
+//   }
+// }
+
+// function deleteProduct(id) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].id == id) {
+//       products.splice(i, 1);
+//     }
+//   }
+// }
+
+// function findProduct(name) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (products[i].name == name) {
+//       console.log(products[i]);
+//     }
+//   }
+// }
+
+// addProduct({ id: 4, name: "Watch", price: 200, stock: 6 });
+// updateStock(2, 20);
+// deleteProduct(3);
+// findProduct("Phone");
+
+// console.log(products);
+
+
+/////////////////// 4-mashq ////////////////////
+
+// let posts = [
+//   {author:"Ali", likes:20, comments:5, shares:3},
+//   {author:"Vali", likes:35, comments:7, shares:4}
+// ];
+
+// let max = posts[0];
+
+// for(let i=0;i<posts.length;i++){
+//   if(posts[i].likes > max.likes){
+//     max = posts[i];
+//   }
+// }
+
+// console.log("Most liked:", max.author);
+
+// let total = 0;
+
+// for(let i=0;i<posts.length;i++){
+//   total += posts[i].likes + posts[i].comments + posts[i].shares;
+// }
+
+// console.log("Total engagement:", total);
+
+
+/////////////////// 5-mashq ////////////////////
+
+// let teams = [
+//   {name:"Team A", wins:5, losses:2, points:15},
+//   {name:"Team B", wins:7, losses:1, points:21},
+//   {name:"Team C", wins:4, losses:3, points:12}
+// ];
+
+// teams.sort(function(a,b){
+//   return b.points - a.points;
+// });
+
+// console.log("Ranking:", teams);
+
+// let best = teams[0];
+
+// for(let i=0;i<teams.length;i++){
+//   if(teams[i].points > best.points){
+//     best = teams[i];
+//   }
+// }
+
+// console.log("Best team:", best.name);
+
+
+
+/////////////////// 6-mashq ////////////////////
+
+// let items = [
+//   {itemName:"Apple", category:"Fruit", stock:30},
+//   {itemName:"Banana", category:"Fruit", stock:10},
+//   {itemName:"Carrot", category:"Vegetable", stock:5}
+// ];
+
+// let fruit = 0;
+// let vegetable = 0;
+
+// for(let i=0;i<items.length;i++){
+//   if(items[i].category == "Fruit"){
+//     fruit += items[i].stock;
+//   }
+//   if(items[i].category == "Vegetable"){
+//     vegetable += items[i].stock;
+//   }
+// }
+
+// console.log("Fruit stock:", fruit);
+// console.log("Vegetable stock:", vegetable);
+
+// for(let i=0;i<items.length;i++){
+//   if(items[i].stock < 10){
+//     console.log("Low stock:", items[i].itemName);
+//   }
+// }
+
+
