@@ -50,7 +50,7 @@ function createCounter(initialVal){
             return a
         },
         decrement: function(){
-            a -= 1;
+            a -= 1; 
             return a;
         }, 
         setNull: function(){
