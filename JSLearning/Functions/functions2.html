@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntions</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1-Mashq: Kofe buyurtma qilish
+        // kofeTayyorla degan funksiya yarating. U 2 ta parametr qabul qilsin: kofeTuri (masalan, Kapuchino) va shakar (necha qoshiq ekanligi).
+        // Ichkarida console.log() orqali shunday matn chiqaring: "Sizning {kofeTuri} kofeingiz {shakar} qoshiq shakar bilan tayyor bo'ldi!"
+        // Keyin bu funksiyani turli xil argumentlar bilan 2 marta chaqiring.
+
+        function kofeTayyorla(kofeTuri, shakar) {
+            console.log(`Sizning ${kofeTuri} kofeingiz ${shakar} qoshiq shakar bilan tayyor bo'ldi!`)
+        }
+        kofeTayyorla('Kapuchino', 2)
+        kofeTayyorla('Expresso', 2)
+
+        // 2-Mashq: Zaxira reja (Default Parameters)
+        // Birinchi mashqdagi funksiyangizni shunday o'zgartiringki, agar foydalanuvchi shakar miqdorini kiritmasa (argument bermasa), avtomatik ravishda shakar qutichasiga 1 raqami tushib qolsin. Buni qanday qilasiz?
+
+        const kofeTayyorla2 = (kofeTuri, shakar = 1) => {
+            console.log(`Sizning ${kofeTuri} kofeingiz ${shakar} qoshiq shakar bilan tayyor bo'ldi!`)
+        }
+        kofeTayyorla2('Latte')
+
+
+        // 3-Mashq: Xatoni toping
+        // Boshqa bir dasturchi do'stingiz ism va familiyani birlashtirib beruvchi kod yozdi, lekin natija teskari chiqib qolyapti. Qayerda xatolik ketgan?
+
+        function toliqIsmYasa(ism, familiya) {
+          return ism + " " + familiya;
+        }
+
+        let natija = toliqIsmYasa("Karimov", "Sanjar");
+        console.log(natija); // "Karimov Sanjar" chiqib qoldi. Buni qanday tuzatamiz?
+        // Yoki funksiya tanasidan parametrlarni o'zgartirish kerak, yoki argumentlar joyini almashtirish kerak.
+        let natija2 = toliqIsmYasa("Sanjar", "Karimov");
+        console.log(natija2)
+
+    </script>
+</body>
+
+</html>

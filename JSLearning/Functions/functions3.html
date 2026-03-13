@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntions</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1-Mashq: Yoshni yilga o'giruvchi mashina
+        // Shunday tugilganYilniTop nomli funksiya yaratingki, u bitta parametr (yosh) qabul qilsin.
+        // Funksiya ichida hozirgi yildan (2024) o'sha yoshni ayirib, tug'ilgan yilni topsin va uni return qilsin.
+        // Tashqarida o'sha funksiyani chaqirib, natijani o'zgaruvchiga saqlang va ekranga chiqaring.
+
+        const tugilganYilniTop = (yosh) => {
+            return 2026 - yosh;
+        }
+
+        console.log(`Sizning tug'ilgan yilingiz: ${tugilganYilniTop(22)}`)
+
+        // 2-Mashq: Detektiv — qaysi kod ishlamaydi?
+        // Quyidagi kodga e'tibor bering. Kompyuter ekranga qaysi yozuvlarni chiqaradi va qaysilarini chiqarmaydi? Nima uchun?
+
+        function parolniTekshir(parol) {
+            if (parol === "12345") {
+                return "Xush kelibsiz!";
+            }
+
+            console.log("Parol tekshirilmoqda...");
+            return "Parol xato!";
+        }
+
+        let natija = parolniTekshir("12345");
+        console.log(natija); //Funksiya tanasida return bloki faqat bir marta ishlaydi.
+
+    </script>
+</body>
+
+</html>
