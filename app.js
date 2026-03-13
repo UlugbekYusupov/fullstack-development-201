@@ -1,3 +1,127 @@
+
+
+// lecture 6 practice 
+// 1
+function first(arr, n) {
+    if (arr == null) return void 0;
+    if (n == null) return arr[0];
+    if (n < 0) return [];
+    return arr.slice(0, n);
+}
+console.log(first([7, 9, 0, -2]));       
+console.log(first([],3));                 
+console.log(first([7, 9, 0, -2],3));      
+console.log(first([7, 9, 0, -2],6));      
+console.log(first([7, 9, 0, -2],-3));     
+
+
+// 2
+function last(arr, n) {
+    if (arr == null) return void 0;
+    if (n == null) return arr[arr.length - 1];
+    return arr.slice(Math.max(arr.length - n, 0));
+}
+console.log(last([7, 9, 0, -2]));
+console.log(last([7, 9, 0, -2],3));
+console.log(last([7, 9, 0, -2],6));
+
+// 3
+var myColor = ["Red", "Green", "White", "Black"];
+console.log(myColor.join());
+console.log(myColor.join(","));
+console.log(myColor.join("+"));
+
+// 4
+var num = "025468";
+var result = num.split("").join("-");
+console.log(result);
+
+// 5
+var arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+arr1.sort(function(a, b){
+    return a - b;
+});
+console.log(arr1);
+
+// 6
+var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+var count = {};
+var maxItem;
+var maxCount = 0;
+for (var i = 0; i < arr1.length; i++) {
+    var item = arr1[i];
+    count[item] = (count[item] || 0) + 1;
+
+    if (count[item] > maxCount) {
+        maxCount = count[item];
+        maxItem = item;
+    }
+}
+console.log(maxItem + " (" + maxCount + " times)");
+
+// 7
+function swapCase(str) {
+    var result = "";
+
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toUpperCase()) {
+            result += str[i].toLowerCase();
+        } else {
+            result += str[i].toUpperCase();
+        }
+    }
+
+    return result;
+}
+console.log(swapCase("The Quick Brown Fox"));
+
+// 8
+var color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+var o = ["th","st","nd","rd"];
+for (var i = 0; i < color.length; i++) {
+    var ordinal;
+    if (i == 0) ordinal = 1 + o[1];
+    else if (i == 1) ordinal = 2 + o[2];
+    else if (i == 2) ordinal = 3 + o[3];
+    else ordinal = (i + 1) + o[0];
+    console.log(ordinal + " choice is " + color[i]);
+}
+
+// 9
+function sumArrays(a1, a2) {
+    var result = [];
+    var maxLength = Math.max(a1.length, a2.length);
+    for (var i = 0; i < maxLength; i++) {
+        var val1 = a1[i] || 0;
+        var val2 = a2[i] || 0;
+        result.push(val1 + val2);
+    }
+    return result;
+}
+var array1 = [1,0,2,3,4];
+var array2 = [3,5,6,7,8,13];
+console.log(sumArrays(array1, array2));
+
+
+
+console.log('Hi')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // lecture 5 Practice
 // // 1
 // function greet(name) {
