@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shart operatorlari</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1-Mashq: Toq sonlar (for sikli)
+        // 1 dan 20 gacha bo'lgan raqamlar orasidagi faqat toq sonlarni ekranga chiqaruvchi for siklini yozing. (Yordam: o'sish qadamini faqat bittaga (i++) emas, ikkitaga oshirib ko'ring).
+
+        for(let i = 1; i<20; i+=2){
+            console.log(i);
+        }
+
+        // 2-Mashq: Ortga sanash (while sikli)
+        // Raketa uchishiga tayyorgarlik ko'rilmoqda. while sikli yordamida 10 dan 1 gacha ortga sanang. Sanab bo'lgach, sikl tugagandan so'ng ekranga "Start!" degan yozuv chiqsin.
+
+        let count = 10;
+        while(count >= 1){
+            console.log(count);
+            if (count === 1){
+                console.log("START!")
+            }
+            count--
+        }
+
+        // 3-Mashq: Imtihon filtri (break va continue)
+        // Tasavvur qiling, sizda 1 dan 10 gacha o'quvchilar ro'yxati (raqamlari) bor. for sikli bilan ularni sanang.
+
+        // Agar o'quvchi raqami 4 yoki 7 bo'lsa, ularni tashlab o'tib keting (continue ishlating).
+
+        // Agar o'quvchi raqami 9 ga yetib kelsa, "Qidiruv tugadi" deb siklni butunlay to'xtating (break ishlating).
+
+        for (let i = 1; true; i++){
+            if (i === 4 || i === 7) continue;
+            console.log(i);
+            if (i === 9){
+                console.log("Qidiruv tugadi");
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
