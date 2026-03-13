@@ -104,12 +104,11 @@ console.log(sumArrays(array1, array2));
 
 
 
+
+
 console.log('Hi')
-
-
-
-
-
+console.log('Hi')
+console.log('Hi')
 
 
 
