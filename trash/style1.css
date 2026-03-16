@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+}
+.anchor {
+  anchor-name: --my-anchor;
+  width: fit-content;
+}
+
+.infobox {
+  position: fixed;
+  position-anchor: --my-anchor;
+}
+
+#tip {
+  position: absolute;
+  left: 5px;
+}
+/* Отключаем неявную связь у popover */
+[popover] {
+  position-anchor: none;           /* или --fake-no-anchor */
+}
+
+.card {
+  anchor-name: --card-header;
+  anchor-scope: --card-header;
+}
+
+.card-image {
+  width: 30vh;
+}
+
+.card-tooltip {
+  position: absolute;
+  position-anchor: --card-header;
+  top: anchor(bottom);
+  left: anchor(left);
+  width: 30vh;
+  height: 150px;
+  box-shadow: 1px;
+  border-radius: 5%;
+  background-color: aqua;
+}

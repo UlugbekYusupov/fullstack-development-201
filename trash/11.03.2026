@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammaddiyor Shodiev</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>
+        <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>    <div class="card">
+        <h1>The last news</h1>
+        <img class="card-image" src="./images/news.svg" alt="News illustration" >
+    </div>
+    <div class="card-tooltip">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque incidunt facere dolor sint ea veniam corporis inventore enim veritatis distinctio, eum expedita molestiae ab quae quas? Fuga, sapiente amet!</p>
+    </div>
+</body>
+</html>
