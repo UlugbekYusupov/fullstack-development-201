@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Strength Checker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 30px 28px 24px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 18px;
+    }
+
+    .input-wrap { position: relative; }
+
+    #pwd {
+      width: 100%;
+      padding: 11px 44px 11px 14px;
+      font-size: 15px;
+      border: 1.8px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+      color: #111;
+    }
+
+    #pwd:focus { border-color: #3b82f6; }
+
+    .toggle-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #777;
+    }
+
+    .badge-wrap {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      min-height: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      padding: 8px 32px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .weak   { background: #e53935; }
+    .medium { background: #f5a623; }
+    .strong { background: #2e7d32; }
+
+    .bars {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #ddd;
+      transition: background 0.3s;
+    }
+
+    .hints {
+      margin-top: 14px;
+      padding-left: 18px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Password Strength Checker</h1>
+
+    <div class="input-wrap">
+      <input id="pwd" type="password" placeholder="Enter password"
+             oninput="checkStrength(this.value)" />
+      <button class="toggle-btn" onclick="toggleVisibility()">👁</button>
+    </div>
+
+    <div class="badge-wrap" id="badge-wrap"></div>
+
+    <div class="bars">
+      <div class="bar" id="bar1"></div>
+      <div class="bar" id="bar2"></div>
+      <div class="bar" id="bar3"></div>
+    </div>
+
+    <ul class="hints" id="hints"></ul>
+  </div>
+
+  <script>
+    function toggleVisibility() {
+      var inp = document.getElementById('pwd');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    }
+
+    function checkStrength(val) {
+      var bw   = document.getElementById('badge-wrap');
+      var hin  = document.getElementById('hints');
+      var bars = ['bar1','bar2','bar3'].map(function(id) {
+        return document.getElementById(id);
+      });
+
+      if (!val) {
+        bw.innerHTML = '';
+        hin.innerHTML = '';
+        bars.forEach(function(b) { b.style.background = '#ddd'; });
+        return;
+      }
+
+      var score = 0, tips = [];
+      if (val.length >= 8)          score++; else tips.push('Use at least 8 characters');
+      if (/[A-Z]/.test(val))        score++; else tips.push('Add an uppercase letter');
+      if (/[0-9]/.test(val))        score++; else tips.push('Add a number');
+      if (/[^A-Za-z0-9]/.test(val)) score++; else tips.push('Add a special character (!@#$...)');
+      if (val.length >= 12)         score++;
+
+      var level, color, label, cls;
+      if      (score <= 2) { level=0; color='#e53935'; label='Weak';   cls='weak';   }
+      else if (score === 3){ level=1; color='#f5a623'; label='Medium'; cls='medium'; }
+      else                 { level=2; color='#2e7d32'; label='Strong'; cls='strong'; }
+
+      bw.innerHTML = '<span class="badge ' + cls + '">' + label + '</span>';
+      bars.forEach(function(b, i) {
+        b.style.background = i <= level ? color : '#ddd';
+      });
+      hin.innerHTML = tips.map(function(t) {
+        return '<li>' + t + '</li>';
+      }).join('');
+    }
+  </script>
+</body>
+</html>

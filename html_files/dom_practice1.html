@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0ece4;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --danger: #dc2626;
+      --danger-hover: #b91c1c;
+      --border: #e5e0d8;
+      --shadow: 0 2px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
+      --radius: 14px;
+      --badge-pending-bg: #f59e0b;
+      --badge-inprogress-bg: #3b82f6;
+      --badge-completed-bg: #22c55e;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 520px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-align: center;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Task List */
+    #task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .task-item {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: #fff;
+      animation: slideIn 0.28s cubic-bezier(.4,0,.2,1);
+      transition: box-shadow 0.2s;
+    }
+    .task-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .task-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .task-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    .task-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #fff;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+      text-transform: lowercase;
+    }
+    .badge-pending     { background: var(--badge-pending-bg); }
+    .badge-in-progress { background: var(--badge-inprogress-bg); }
+    .badge-completed   { background: var(--badge-completed-bg); }
+
+    /* Buttons */
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      border-radius: 7px;
+      transition: background 0.18s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-delete {
+      background: var(--danger);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      width: fit-content;
+    }
+    .btn-delete:hover { background: var(--danger-hover); }
+
+    .btn-add {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 14px;
+      width: 100%;
+      border-radius: 9px;
+      letter-spacing: 0.01em;
+    }
+    .btn-add:hover { background: var(--accent-hover); }
+
+    .btn-save {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.93rem;
+      padding: 13px;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .btn-save:hover { background: var(--accent-hover); }
+
+    .btn-close {
+      background: var(--danger);
+      color: #fff;
+      font-size: 0.93rem;
+      padding: 13px;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+    .btn-close:hover { background: var(--danger-hover); }
+
+    /* Modal Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.active { display: flex; }
+
+    .modal {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: var(--shadow-lg);
+      padding: 1.8rem 1.6rem;
+      width: 90%;
+      max-width: 400px;
+      animation: popIn 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .modal h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    /* Form Inputs */
+    .form-group { margin-bottom: 0.9rem; }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.18s;
+    }
+    input[type="text"]:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    select { appearance: auto; cursor: pointer; }
+
+    ::placeholder { color: #aaa; }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    .empty-state span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+    /* Validation error */
+    .error-msg {
+      font-size: 0.78rem;
+      color: var(--danger);
+      margin-top: 4px;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Interactive To-Do List</h1>
+  <div id="task-list"></div>
+  <button class="btn btn-add" onclick="openModal()">+ Add Task</button>
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h2>Add Task</h2>
+    <div class="form-group">
+      <input type="text" id="task-title" placeholder="Task Title" maxlength="60"/>
+      <div class="error-msg" id="err-title">Please enter a task title.</div>
+    </div>
+    <div class="form-group">
+      <textarea id="task-desc" placeholder="Task Description"></textarea>
+    </div>
+    <div class="form-group">
+      <select id="task-status">
+        <option value="pending">Pending</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    <button class="btn btn-save" onclick="saveTask()">Save Task</button>
+    <button class="btn btn-close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+  let tasks = [
+    { id: 1, title: 'Task 1', desc: 'Description for Task 1', status: 'pending' },
+    { id: 2, title: 'Task 2', desc: 'Description for Task 2', status: 'in-progress' },
+    { id: 3, title: 'Task 3', desc: 'Description for Task 3', status: 'completed' },
+  ];
+  let nextId = 4;
+
+  function statusBadgeClass(status) {
+    return status === 'pending' ? 'badge-pending'
+         : status === 'in-progress' ? 'badge-in-progress'
+         : 'badge-completed';
+  }
+
+  function renderTasks() {
+    const list = document.getElementById('task-list');
+    if (tasks.length === 0) {
+      list.innerHTML = `<div class="empty-state"><span>📋</span>No tasks yet. Add one!</div>`;
+      return;
+    }
+    list.innerHTML = tasks.map(t => `
+      <div class="task-item" id="task-${t.id}">
+        <div class="task-header">
+          <span class="task-title">${escHtml(t.title)}</span>
+          <span class="badge ${statusBadgeClass(t.status)}">${t.status}</span>
+        </div>
+        ${t.desc ? `<div class="task-desc">${escHtml(t.desc)}</div>` : ''}
+        <div>
+          <button class="btn btn-delete" onclick="deleteTask(${t.id})">Delete</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function deleteTask(id) {
+    const el = document.getElementById('task-' + id);
+    el.style.transition = 'opacity 0.25s, transform 0.25s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(20px)';
+    setTimeout(() => {
+      tasks = tasks.filter(t => t.id !== id);
+      renderTasks();
+    }, 250);
+  }
+
+  function openModal() {
+    document.getElementById('overlay').classList.add('active');
+    document.getElementById('task-title').focus();
+  }
+
+  function closeModal() {
+    document.getElementById('overlay').classList.remove('active');
+    document.getElementById('task-title').value = '';
+    document.getElementById('task-desc').value = '';
+    document.getElementById('task-status').value = 'pending';
+    document.getElementById('err-title').classList.remove('show');
+  }
+
+  function saveTask() {
+    const title = document.getElementById('task-title').value.trim();
+    const desc  = document.getElementById('task-desc').value.trim();
+    const status = document.getElementById('task-status').value;
+    const errTitle = document.getElementById('err-title');
+
+    if (!title) { errTitle.classList.add('show'); return; }
+    errTitle.classList.remove('show');
+
+    tasks.push({ id: nextId++, title, desc, status });
+    renderTasks();
+    closeModal();
+  }
+
+  // Close modal on overlay click
+  document.getElementById('overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Allow Enter in title field to save
+  document.getElementById('task-title')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveTask();
+  });
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  renderTasks();
+</script>
+</body>
+</html>

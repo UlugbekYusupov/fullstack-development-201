@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+
+        body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+        font-family: 'Nunito', sans-serif;
+        }
+
+        /* ── Calculator Card ── */
+        .calc-wrapper {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 24px 20px 20px;
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.12),
+            0 4px 16px rgba(0, 0, 0, 0.06);
+        width: 320px;
+        }
+
+        /* ── Display ── */
+        .display {
+        background: #f5f5f5;
+        border-radius: 16px;
+        padding: 14px 20px;
+        margin-bottom: 18px;
+        min-height: 72px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 4px;
+        overflow: hidden;
+        }
+
+        .display .expression {
+        font-size: 13px;
+        color: #aaa;
+        min-height: 18px;
+        word-break: break-all;
+        text-align: right;
+        }
+
+        .display .result {
+        font-size: 32px;
+        font-weight: 800;
+        color: #333;
+        word-break: break-all;
+        text-align: right;
+        line-height: 1.1;
+        }
+
+        /* ── Button Grid ── */
+        .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        }
+
+        /* ── Base Button ── */
+        button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 14px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        height: 62px;
+        transition:
+            transform 0.08s ease,
+            box-shadow 0.08s ease,
+            filter 0.08s ease;
+        -webkit-user-select: none;
+        user-select: none;
+        }
+
+        button:active {
+        transform: scale(0.93);
+        filter: brightness(0.92);
+        }
+
+        /* ── White / Digit Buttons ── */
+        .btn-white {
+        background: #ffffff;
+        color: #333;
+        box-shadow:
+            0 4px 10px rgba(0, 0, 0, 0.10),
+            0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-white:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+        }
+
+        /* ── Orange Buttons ── */
+        .btn-orange {
+        background: #F89820;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(248, 152, 32, 0.40);
+        }
+
+        .btn-orange:hover {
+        box-shadow: 0 6px 20px rgba(248, 152, 32, 0.55);
+        }
+
+        /* ── Green Equals Button ── */
+        .btn-green {
+        background: #3daa5a;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(61, 170, 90, 0.40);
+        }
+
+        .btn-green:hover {
+        box-shadow: 0 6px 20px rgba(61, 170, 90, 0.55);
+        }
+
+        /* ── Zero: Span 2 Columns ── */
+        .span2 {
+        grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+
+  <div class="calc-wrapper">
+    <div class="display">
+      <div class="expression" id="expression"></div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="btn-orange" data-action="clear">C</button>
+      <button class="btn-orange" data-action="delete">DEL</button>
+      <button class="btn-orange" data-action="percent">%</button>
+      <button class="btn-orange" data-action="operator" data-value="+">+</button>
+
+      <!-- Row 2 -->
+      <button class="btn-white" data-action="digit" data-value="7">7</button>
+      <button class="btn-white" data-action="digit" data-value="8">8</button>
+      <button class="btn-white" data-action="digit" data-value="9">9</button>
+      <button class="btn-orange" data-action="operator" data-value="×">×</button>
+
+      <!-- Row 3 -->
+      <button class="btn-white" data-action="digit" data-value="4">4</button>
+      <button class="btn-white" data-action="digit" data-value="5">5</button>
+      <button class="btn-white" data-action="digit" data-value="6">6</button>
+      <button class="btn-orange" data-action="operator" data-value="−">−</button>
+
+      <!-- Row 4 -->
+      <button class="btn-white" data-action="digit" data-value="1">1</button>
+      <button class="btn-white" data-action="digit" data-value="2">2</button>
+      <button class="btn-white" data-action="digit" data-value="3">3</button>
+      <button class="btn-orange" data-action="operator" data-value="+">+</button>
+
+      <!-- Row 5 -->
+      <button class="btn-white span2" data-action="digit" data-value="0">0</button>
+      <button class="btn-white" data-action="dot">.</button>
+      <button class="btn-green" data-action="equals">=</button>
+    </div>
+  </div>
+
+    <script>
+            const resultEl     = document.getElementById('result');
+            const expressionEl = document.getElementById('expression');
+
+            let current     = '0';
+            let previous    = '';
+            let operator    = null;
+            let shouldReset = false;
+
+            /* ── Display Helpers ── */
+            function updateDisplay(val) {
+            resultEl.textContent = val;
+            }
+
+            function setExpression(val) {
+            expressionEl.textContent = val;
+            }
+
+            /* ── Actions ── */
+            function handleDigit(d) {
+            if (shouldReset) {
+                current = d;
+                shouldReset = false;
+            } else {
+                current = current === '0' ? d : current + d;
+            }
+            updateDisplay(current);
+            }
+
+            function handleDot() {
+            if (shouldReset) {
+                current = '0.';
+                shouldReset = false;
+            } else if (!current.includes('.')) {
+                current += '.';
+            }
+            updateDisplay(current);
+            }
+
+            function handleOperator(op) {
+            if (operator && !shouldReset) calculate();
+            previous  = current;
+            operator  = op;
+            shouldReset = true;
+            setExpression(previous + ' ' + op);
+            }
+
+            function calculate() {
+            if (!operator || !previous) return;
+
+            const a = parseFloat(previous);
+            const b = parseFloat(current);
+            let res;
+
+            switch (operator) {
+                case '+': res = a + b; break;
+                case '−': res = a - b; break;
+                case '×': res = a * b; break;
+                default:  return;
+            }
+
+            setExpression(previous + ' ' + operator + ' ' + current + ' =');
+            current     = parseFloat(res.toFixed(10)).toString();
+            operator    = null;
+            previous    = '';
+            shouldReset = true;
+            updateDisplay(current);
+            }
+
+            function handlePercent() {
+            current = (parseFloat(current) / 100).toString();
+            updateDisplay(current);
+            }
+
+            function handleDelete() {
+            current = current.length > 1 ? current.slice(0, -1) : '0';
+            updateDisplay(current);
+            }
+
+            function handleClear() {
+            current     = '0';
+            previous    = '';
+            operator    = null;
+            shouldReset = false;
+            updateDisplay('0');
+            setExpression('');
+            }
+
+            /* ── Button Click Events ── */
+            document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                const value  = btn.dataset.value;
+
+                switch (action) {
+                case 'digit':    handleDigit(value);    break;
+                case 'dot':      handleDot();           break;
+                case 'operator': handleOperator(value); break;
+                case 'equals':   calculate();           break;
+                case 'percent':  handlePercent();       break;
+                case 'delete':   handleDelete();        break;
+                case 'clear':    handleClear();         break;
+                }
+            });
+            });
+
+            /* ── Keyboard Support ── */
+            document.addEventListener('keydown', e => {
+            if (e.key >= '0' && e.key <= '9') handleDigit(e.key);
+            else if (e.key === '.')            handleDot();
+            else if (e.key === '+')            handleOperator('+');
+            else if (e.key === '-')            handleOperator('−');
+            else if (e.key === '*')            handleOperator('×');
+            else if (e.key === 'Enter' || e.key === '=') calculate();
+            else if (e.key === 'Backspace')    handleDelete();
+            else if (e.key === 'Escape')       handleClear();
+            else if (e.key === '%')            handlePercent();
+            });
+    </script>
+</body>
+</html>
