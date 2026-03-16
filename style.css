@@ -11,7 +11,8 @@ body{
 
 .form-box{
     background:white;
-    border:1px solid #ddd;
+    border:2px solid #ddd;
+    box-shadow:#2c2c2c 0px 0px 2px 4px;
 }
 
 .form-box h2{
@@ -46,10 +47,11 @@ button{
     color:white;
     border:none;
     padding:10px 18px;
-    border-radius:4px;
+    border-radius:5px;
     cursor:pointer;
 }
 
 button:hover{
     background:#218838;
 }
+
