@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sports Leaderboard</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        padding: 40px;
+      }
+
+      .card {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        width: 350px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      input {
+        width: 94%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 6px;
+        background: #3f73d9;
+        color: white;
+        cursor: pointer;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+
+      th {
+        background: #3f73d9;
+        color: white;
+      }
+
+      .best {
+        background: #d4ffd4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ADD TEAM -->
+    <div class="card">
+      <h2>🏆 Add New Team</h2>
+
+      <input id="teamName" placeholder="Team Name" />
+      <input id="wins" placeholder="Wins" />
+      <input id="losses" placeholder="Losses" />
+      <input id="goalsScored" placeholder="Goals Scored" />
+      <input id="goalsConceded" placeholder="Goals Conceded" />
+
+      <button id="addTeam">Add Team</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card" style="width: 500px">
+      <h2>🏆 Sports Tournament Leaderboard</h2>
+
+      <button id="sortBtn">Sort by Ranking</button>
+      <button id="bestBtn">Highlight Best Team</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Points</th>
+            <th>Goal Diff</th>
+          </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <script src="./ap.js"></script>
+  </body>
+</html>

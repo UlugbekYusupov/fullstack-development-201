@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homework 1</title>
+    
+
+    <style>
+      body {
+        font-family: Arial;
+        background: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        gap: 40px;
+      }
+
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      input {
+        width: 93%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #3b6edc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .link {
+        margin-top: 15px;
+        text-align: center;
+        color: #3b6edc;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- SIGN UP -->
+      <div class="card" id="signup">
+        <h2>Sign Up</h2>
+
+        <input type="text" placeholder="Username" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+
+        <button>Submit</button>
+
+        <div class="link" id="goLogin">Already have an account? Login</div>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="card" id="login" style="display: none">
+        <h2>Login</h2>
+
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+
+        <button>Submit</button>
+
+        <div class="link" id="goSignup">Don't have an account? Sign Up</div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
