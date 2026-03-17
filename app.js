@@ -1,114 +1,325 @@
 
 
-// lecture 6 practice 
+
+// lecture 7
 // 1
-function first(arr, n) {
-    if (arr == null) return void 0;
-    if (n == null) return arr[0];
-    if (n < 0) return [];
-    return arr.slice(0, n);
+const students = [
+  { name: "Alice", scores: [80, 90, 100] },
+  { name: "Bob", scores: [50, 60, 70] },
+  { name: "Charlie", scores: [30, 40, 20] }
+];
+function calculateAverage(scores) {
+  const total = scores.reduce((acc, score) => acc + score, 0);
+  return total / scores.length;
 }
-console.log(first([7, 9, 0, -2]));       
-console.log(first([],3));                 
-console.log(first([7, 9, 0, -2],3));      
-console.log(first([7, 9, 0, -2],6));      
-console.log(first([7, 9, 0, -2],-3));     
+function hasPassed(average) {
+  return average >= 50;
+}
+function findTopPerformer(students) {
+  let topStudent = students[0];
+  let highestAverage = calculateAverage(topStudent.scores);
+
+  students.forEach(student => {
+    const avg = calculateAverage(student.scores);
+    if (avg > highestAverage) {
+      topStudent = student;
+      highestAverage = avg;
+    }
+  });
+
+  return topStudent.name;
+}
+students.forEach(student => {
+  const avg = calculateAverage(student.scores);
+  const passed = hasPassed(avg);
+  console.log(`${student.name}ning o'rtacha bahosi: ${avg}`);
+  console.log(`${student.name} ${passed ? 'o\'tgan' : 'o\'tmagan'}`);
+});
+const topPerformer = findTopPerformer(students);
+console.log(`Eng yaxshi natija ko'rsatgan talaba: ${topPerformer}`);
 
 
 // 2
-function last(arr, n) {
-    if (arr == null) return void 0;
-    if (n == null) return arr[arr.length - 1];
-    return arr.slice(Math.max(arr.length - n, 0));
+const cart = [
+  { id: 1, name: "Laptop", price: 900, quantity: 1 },
+  { id: 2, name: "Mouse", price: 50, quantity: 2 },
+  { id: 3, name: "Keyboard", price: 100, quantity: 1 }
+];
+function calculateTotal(cart) {
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 }
-console.log(last([7, 9, 0, -2]));
-console.log(last([7, 9, 0, -2],3));
-console.log(last([7, 9, 0, -2],6));
+function applyDiscount(total) {
+  return total > 100 ? total * 0.9 : total;
+}
+function findMostExpensiveItem(cart) {
+  return cart.reduce((maxItem, item) => {
+    const itemTotalPrice = item.price * item.quantity;
+    return itemTotalPrice > (maxItem.price * maxItem.quantity) ? item : maxItem;
+  });
+}
+
+const total = calculateTotal(cart);
+const totalAfterDiscount = applyDiscount(total);
+const mostExpensiveItem = findMostExpensiveItem(cart);
+
+console.log(`Total Price: $${totalAfterDiscount} (after discount)`);
+console.log(`Most expensive item: ${mostExpensiveItem.name} - $${mostExpensiveItem.price}`);
+
 
 // 3
-var myColor = ["Red", "Green", "White", "Black"];
-console.log(myColor.join());
-console.log(myColor.join(","));
-console.log(myColor.join("+"));
+const products = [
+  { id: 1, name: "Laptop", price: 1200, stock: 10 },
+  { id: 2, name: "Phone", price: 700, stock: 15 },
+];
+function addProduct(newProduct) {
+  products.push(newProduct);
+}
+function updateStock(productId, newStock) {
+  const product = products.find(item => item.id === productId);
+  if (product) {
+    product.stock = newStock;
+  } else {
+    console.log('Product not found');
+  }
+}
+function deleteProduct(productId) {
+  const index = products.findIndex(item => item.id === productId);
+  if (index !== -1) {
+    products.splice(index, 1);
+  } else {
+    console.log('Product not found');
+  }
+}
+function findProduct(productName) {
+  return products.find(item => item.name.toLowerCase() === productName.toLowerCase());
+}
+addProduct({ id: 3, name: "Tablet", price: 400, stock: 20 });
+updateStock(1, 12);
+deleteProduct(2);
+const foundProduct = findProduct("Laptop");
+console.log(foundProduct);
+console.log(products);
+
 
 // 4
-var num = "025468";
-var result = num.split("").join("-");
-console.log(result);
+const posts = [
+  { author: "Alice", likes: 100, comments: 20, shares: 5, commentsDetails: [{ user: "John", message: "Great post!" }] },
+  { author: "Bob", likes: 200, comments: 50, shares: 10, commentsDetails: [{ user: "Alice", message: "Interesting post!" }] }
+];
+function findMostLikedPost(posts) {
+  return posts.reduce((mostLiked, post) => {
+    return post.likes > mostLiked.likes ? post : mostLiked;
+  });
+}
+function calculateTotalEngagement(posts) {
+  return posts.reduce((total, post) => {
+    return total + post.likes + post.comments + post.shares;
+  }, 0);
+}
+const mostLikedPost = findMostLikedPost(posts);
+console.log("Most liked post:", mostLikedPost);
+const totalEngagement = calculateTotalEngagement(posts);
+console.log("Total engagement:", totalEngagement);
+posts.forEach(post => {
+  console.log(`${post.author}'s comments:`);
+  post.commentsDetails.forEach(comment => {
+    console.log(`User: ${comment.user}, Message: ${comment.message}`);
+  });
+});
+
 
 // 5
-var arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
-arr1.sort(function(a, b){
-    return a - b;
+const teams = [
+  { name: "Team A", wins: 5, losses: 2, points: 15, goalsScored: 20, goalsConceded: 10 },
+  { name: "Team B", wins: 6, losses: 1, points: 18, goalsScored: 25, goalsConceded: 12 },
+];
+function sortTeamsByRanking(teams) {
+  return teams.sort((a, b) => b.points - a.points); // Eng ko'p ochkoga ega jamoalar yuqorida bo'ladi
+}
+function findBestPerformingTeam(teams) {
+  return teams.reduce((bestTeam, team) => {
+    return team.points > bestTeam.points ? team : bestTeam;
+  });
+}
+const sortedTeams = sortTeamsByRanking(teams);
+console.log("Sorted Teams:", sortedTeams);
+const bestTeam = findBestPerformingTeam(teams);
+console.log("Best Performing Team:", bestTeam);
+teams.forEach(team => {
+  console.log(`${team.name}: Wins: ${team.wins}, Losses: ${team.losses}, Points: ${team.points}, Goals Scored: ${team.goalsScored}, Goals Conceded: ${team.goalsConceded}`);
 });
-console.log(arr1);
+
 
 // 6
-var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
-var count = {};
-var maxItem;
-var maxCount = 0;
-for (var i = 0; i < arr1.length; i++) {
-    var item = arr1[i];
-    count[item] = (count[item] || 0) + 1;
-
-    if (count[item] > maxCount) {
-        maxCount = count[item];
-        maxItem = item;
+const inventory = [
+  { itemName: "Laptop", category: "Electronics", stock: 5 },
+  { itemName: "Phone", category: "Electronics", stock: 10 },
+  { itemName: "Table", category: "Furniture", stock: 2 },
+  { itemName: "Chair", category: "Furniture", stock: 7 }
+];
+function totalStockByCategory(category) {
+  return inventory
+    .filter((item) => item.category === category)
+    .reduce((sum, item) => sum + item.stock, 0);
+}
+function alertLowStock(threshold = 5) {
+  inventory.forEach(item => {
+    if (item.stock <= threshold) {
+      console.log(`ALERT: Low stock for ${item.itemName} in ${item.category}. Stock: ${item.stock}`);
     }
+  });
 }
-console.log(maxItem + " (" + maxCount + " times)");
-
-// 7
-function swapCase(str) {
-    var result = "";
-
-    for (var i = 0; i < str.length; i++) {
-        if (str[i] === str[i].toUpperCase()) {
-            result += str[i].toLowerCase();
-        } else {
-            result += str[i].toUpperCase();
-        }
-    }
-
-    return result;
-}
-console.log(swapCase("The Quick Brown Fox"));
-
-// 8
-var color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-var o = ["th","st","nd","rd"];
-for (var i = 0; i < color.length; i++) {
-    var ordinal;
-    if (i == 0) ordinal = 1 + o[1];
-    else if (i == 1) ordinal = 2 + o[2];
-    else if (i == 2) ordinal = 3 + o[3];
-    else ordinal = (i + 1) + o[0];
-    console.log(ordinal + " choice is " + color[i]);
-}
-
-// 9
-function sumArrays(a1, a2) {
-    var result = [];
-    var maxLength = Math.max(a1.length, a2.length);
-    for (var i = 0; i < maxLength; i++) {
-        var val1 = a1[i] || 0;
-        var val2 = a2[i] || 0;
-        result.push(val1 + val2);
-    }
-    return result;
-}
-var array1 = [1,0,2,3,4];
-var array2 = [3,5,6,7,8,13];
-console.log(sumArrays(array1, array2));
+const electronicsStock = totalStockByCategory("Electronics");
+console.log("Total stock in Electronics:", electronicsStock);
+alertLowStock(5);
 
 
 
 
 
-console.log('Hi')
-console.log('Hi')
-console.log('Hi')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // lecture 6 practice
+// // 1
+// function first(arr, n) {
+//     if (arr == null) return void 0;
+//     if (n == null) return arr[0];
+//     if (n < 0) return [];
+//     return arr.slice(0, n);
+// }
+// console.log(first([7, 9, 0, -2]));
+// console.log(first([],3));
+// console.log(first([7, 9, 0, -2],3));
+// console.log(first([7, 9, 0, -2],6));
+// console.log(first([7, 9, 0, -2],-3));
+
+
+// // 2
+// function last(arr, n) {
+//     if (arr == null) return void 0;
+//     if (n == null) return arr[arr.length - 1];
+//     return arr.slice(Math.max(arr.length - n, 0));
+// }
+// console.log(last([7, 9, 0, -2]));
+// console.log(last([7, 9, 0, -2],3));
+// console.log(last([7, 9, 0, -2],6));
+
+// // 3
+// var myColor = ["Red", "Green", "White", "Black"];
+// console.log(myColor.join());
+// console.log(myColor.join(","));
+// console.log(myColor.join("+"));
+
+// // 4
+// var num = "025468";
+// var result = num.split("").join("-");
+// console.log(result);
+
+// // 5
+// var arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+// arr1.sort(function(a, b){
+//     return a - b;
+// });
+// console.log(arr1);
+
+// // 6
+// var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+// var count = {};
+// var maxItem;
+// var maxCount = 0;
+// for (var i = 0; i < arr1.length; i++) {
+//     var item = arr1[i];
+//     count[item] = (count[item] || 0) + 1;
+
+//     if (count[item] > maxCount) {
+//         maxCount = count[item];
+//         maxItem = item;
+//     }
+// }
+// console.log(maxItem + " (" + maxCount + " times)");
+
+// // 7
+// function swapCase(str) {
+//     var result = "";
+
+//     for (var i = 0; i < str.length; i++) {
+//         if (str[i] === str[i].toUpperCase()) {
+//             result += str[i].toLowerCase();
+//         } else {
+//             result += str[i].toUpperCase();
+//         }
+//     }
+
+//     return result;
+// }
+// console.log(swapCase("The Quick Brown Fox"));
+
+// // 8
+// var color = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+// var o = ["th","st","nd","rd"];
+// for (var i = 0; i < color.length; i++) {
+//     var ordinal;
+//     if (i == 0) ordinal = 1 + o[1];
+//     else if (i == 1) ordinal = 2 + o[2];
+//     else if (i == 2) ordinal = 3 + o[3];
+//     else ordinal = (i + 1) + o[0];
+//     console.log(ordinal + " choice is " + color[i]);
+// }
+
+// // 9
+// function sumArrays(a1, a2) {
+//     var result = [];
+//     var maxLength = Math.max(a1.length, a2.length);
+//     for (var i = 0; i < maxLength; i++) {
+//         var val1 = a1[i] || 0;
+//         var val2 = a2[i] || 0;
+//         result.push(val1 + val2);
+//     }
+//     return result;
+// }
+// var array1 = [1,0,2,3,4];
+// var array2 = [3,5,6,7,8,13];
+// console.log(sumArrays(array1, array2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -261,17 +472,17 @@ console.log('Hi')
 // console.log(greet("Ali"));
 // console.log(greet("Vali"));
 // // 2
-// console.log(isPrime(7));  
-// console.log(isPrime(10)); 
+// console.log(isPrime(7));
+// console.log(isPrime(10));
 // // 3
-// console.log(countDigits(12345)); 
-// console.log(countDigits(99));    
+// console.log(countDigits(12345));
+// console.log(countDigits(99));
 // // 4
-// console.log(isPalindrome(121)); 
-// console.log(isPalindrome(123)); 
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(123));
 // // 5
-// console.log(isArmstrong(153)); 
-// console.log(isArmstrong(123)); 
+// console.log(isArmstrong(153));
+// console.log(isArmstrong(123));
 // // 6
 // const counter = createCounter(10);
 // counter.getCount();
@@ -285,9 +496,9 @@ console.log('Hi')
 // // 8
 // const add5 = lazyAdder(5);
 // console.log(add5(10));
-// console.log(add5(20)); 
+// console.log(add5(20));
 // const add100 = lazyAdder(100);
-// console.log(add100(50)); 
+// console.log(add100(50));
 
 
 // // lecture 5 Assignment
@@ -477,14 +688,14 @@ console.log('Hi')
 // const editorUser = createUserRole("editor");
 // const viewerUser = createUserRole("viewer");
 
-// console.log(adminUser.do("add"));     // 
-// console.log(adminUser.do("delete"));  // 
+// console.log(adminUser.do("add"));     //
+// console.log(adminUser.do("delete"));  //
 
-// console.log(editorUser.do("add"));    // 
-// console.log(editorUser.do("edit"));   // 
+// console.log(editorUser.do("add"));    //
+// console.log(editorUser.do("edit"));   //
 
-// console.log(viewerUser.do("view"));   // 
-// console.log(viewerUser.do("edit"));   // 
+// console.log(viewerUser.do("view"));   //
+// console.log(viewerUser.do("edit"));   //
 
 // // 8
 // function taxCalculator(income) {
@@ -510,7 +721,7 @@ console.log('Hi')
 // console.log(taxCalculator(20000));  // 10% tax
 // console.log(taxCalculator(70000));  // 20% tax
 
-// // Lecture Bonus 
+// // Lecture Bonus
 // // 1
 // function debounce(fn, delay) {
 //   let timerId = null; // closure ichida saqlanadi
@@ -531,7 +742,7 @@ console.log('Hi')
 
 // // 2
 // function throttle(fn, interval) {
-//   let lastTime = 0; 
+//   let lastTime = 0;
 //   let timerId = null;
 //   return function (...args) {
 //     const now = Date.now();
@@ -561,7 +772,7 @@ console.log('Hi')
 
 // // 3
 // function taskScheduler() {
-//   let timers = []; 
+//   let timers = [];
 //   return {
 //     schedule(task, delay) {
 //       const id = setTimeout(() => {
@@ -569,7 +780,7 @@ console.log('Hi')
 //         timers = timers.filter((t) => t !== id);
 //       }, delay);
 //       timers.push(id);
-//       return id; 
+//       return id;
 //     },
 //     cancelAll() {
 //       for (const id of timers) {
@@ -816,7 +1027,7 @@ console.log('Hi')
 //   let kota = raqamlar % 10;
 //   if (kota > kotasi) {
 //     kotasi = kota;
-//   } 
+//   }
 //   raqamlar = Math.floor(raqamlar / 10);
 // }
 // console.log("kota raqam:", kotasi);
