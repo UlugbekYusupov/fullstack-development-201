@@ -11,94 +11,74 @@
    
 
     <script>
- // Lecture-3   challenge-3         
-    function reverseNumber(num) {
-    let startDigit = 0;
-    let isNegative = num < 0;
-    
-    // Agar son manfiy bo'lsa, uni vaqtincha musbatga aylantiramiz
-    if (isNegative) {
-        num = num * -1;
-    }
+     // Lecture-4  1 exersice
+     let a = 22;
+     let b = 44;
 
-    // Raqamlarni teskari qilish jarayoni
-    while (num > 0) {
-        let lastDigit = num % 10;      // Oxirgi raqamni olish
-        if(startDigit<lastDigit){
-            startDigit = lastDigit
-        };
-        num = Math.floor(num / 10);    // Oxirgi raqamni o'chirish
-    }
+     if(a>b){
+         console.log(a);
+     }
+     else{
+         console.log(b)
+     };
 
-    // Agar son manfiy bo'lgan bo'lsa, manfiylikni qaytaramiz
-    if (isNegative) {
-        return startDigit * -1;
-    }
+     // Lecture-4  2 exersice
+   function signJon(){
+     let x = 3;
+     let y = -7;
+     let z = 2;
 
-    return startDigit;
-}
+    if(x*y*z>0){
+        alert("The sign is +");
+     }else if(x*y*z<0){
+        alert("The sign is -");
+     }else{
+        alert("The sign is 0");
+     }
+   };
+   signJon();
+   
+     // Lecture-4  3 exersice
+   
+     let num1 = 0;
+     let num2 = -1;
+     let num3 = 4;
+
+     if (num1>num2 && num1>num3){
+        alert(`${num1} ${num2} ${num3}`);
+     }else if(num2>num1 && num1>num3){
+        alert(`${num2} ${num1} ${num3} `);
+
+     }else if(num3>num1 && num1>num2){
+        alert(`${num3} ${num1} ${num2} `);
+     }
+   
+   // Lecture-4  4 exersice
+
+ /*  for(i = 0;i<15;i++){
+      if(i%2==0){
+         alert(i+"is even")
+      }
+      else{
+         alert(i + "is odd")
+      }
+   }
+   */
+   // Lecture-4  5 exersice
+
+   for(i = 0; i<100;i++){
+      if(i%3==0){
+         alert("FIZZ")
+      }
+      else if(i%5==0 && i%3==0){
+         alert("FIZZBUZZ")
+      }
+      else if(i%5==0){
+         alert("BUZZ")
+      }
+   }
 
 
-console.log(reverseNumber(123459)); 
-console.log(reverseNumber(187));  
-console.log(reverseNumber(-561)); 
-
-// Lecture-3   challenge-4
-function sumNumbers(num) {
-    let startDigit = 0;
-    let isNegative = num < 0;
-    
-    // Agar son manfiy bo'lsa, uni vaqtincha musbatga aylantiramiz
-    if (isNegative) {
-        num = num * -1;
-    }
-
-    // Raqamlarni teskari qilish jarayoni
-    while (num > 0) {
-        let lastDigit = num % 10;      // Oxirgi raqamni olish
-        startDigit += lastDigit;
-        num = Math.floor(num / 10);    // Oxirgi raqamni o'chirish
-    }
-
-    // Agar son manfiy bo'lgan bo'lsa, manfiylikni qaytaramiz
-    if (isNegative) {
-        return startDigit * -1;
-    }
-
-    return startDigit;
-}
-    
-console.log(sumNumbers(-561));
-console.log(sumNumbers(123));
-console.log(sumNumbers(888977));  
-
-// Lecture-3   challenge-5
-function countNumbers(num) {
-    let startDigit = 0;
-    let isNegative = num < 0;
-    
-    // Agar son manfiy bo'lsa, uni vaqtincha musbatga aylantiramiz
-    if (isNegative) {
-        num = num * -1;
-    }
-
-    // Raqamlarni teskari qilish jarayoni
-    while (num > 0) {
-        let lastDigit = num % 10;      // Oxirgi raqamni olish
-        startDigit++;
-        num = Math.floor(num / 10);    // Oxirgi raqamni o'chirish
-    }
-
-    // Agar son manfiy bo'lgan bo'lsa, manfiylikni qaytaramiz
-    
-
-    return startDigit;
-}
-    
-console.log(countNumbers(-561));
-console.log(countNumbers(123));
-console.log(countNumbers(888977));  
-    
     </script>
 </body>
 </html>
