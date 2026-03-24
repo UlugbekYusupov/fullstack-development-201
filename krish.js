@@ -21,7 +21,33 @@
 // let firstname = "Boborahim"
 // console.log(typeof firstname);
 
-var a = 10;
-var a = 20;
-console.log(a);
-alert("Bu alert");
+// var a = 10;
+// var a = 20;
+// console.log(a);
+// alert("Bu alert");
+
+
+//  DOM Manipulation 
+let title = document.querySelector("h1");
+let button = document.querySelector("#toggle-color");
+
+let isGreen = true;
+if (title) {
+	title.style.color = "green";
+}
+
+if (button) {
+	button.addEventListener("click", function () {
+		if (!title) {
+			return;
+		}
+
+		if (isGreen) {
+			title.style.color = "red";
+		} else {
+			title.style.color = "green";
+		}
+
+		isGreen = !isGreen;
+	});
+}
