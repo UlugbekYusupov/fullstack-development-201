@@ -705,3 +705,11 @@
 //     console.log("Low stock:", items[i].itemName);
 //   }
 // }
+
+
+
+
+
+
+
+

@@ -1,13 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    input.error {
+      border: 1px solid red;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 10px;
+      color: #1976d2;
+      cursor: pointer;
+    }
+
+    .msg {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .show {
+      font-size: 12px;
+      cursor: pointer;
+      color: gray;
+    }
+  </style>
 </head>
 <body>
-    
 
-    <script src="./app.js"></script>
+  <!-- SIGN UP -->
+  <!-- <div class="card" id="signup">
+    <h2>Sign Up</h2>
+    <input id="su_username" placeholder="Username">
+    <input id="su_email" placeholder="Email">
+    
+    <input id="su_password" type="password" placeholder="Password">
+    <div class="show" onclick="togglePassword('su_password')">Show</div>
+
+    <button onclick="signUp()">Submit</button>
+    <div class="msg" id="su_msg"></div>
+
+    <div class="link" onclick="showLogin()">Already have account? Login</div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="card" id="login" style="display:none">
+    <h2>Login</h2>
+    <input id="li_email" placeholder="Email">
+
+    <input id="li_password" type="password" placeholder="Password">
+    <div class="show" onclick="togglePassword('li_password')">Show</div>
+
+    <button onclick="login()">Submit</button>
+    <div class="msg" id="li_msg"></div>
+
+    <div class="link" onclick="showSignup()">Don't have account? Sign Up</div>
+  </div>
+
+<script>
+  let user = JSON.parse(localStorage.getItem("user")) || null;
+
+  function signUp() {
+    let username = document.getElementById('su_username');
+    let email = document.getElementById('su_email');
+    let password = document.getElementById('su_password');
+
+    let msg = document.getElementById('su_msg');
+
+    // reset error
+    [username, email, password].forEach(i => i.classList.remove("error"));
+
+    if (!username.value || !email.value || !password.value) {
+      msg.innerText = "Hammasini to‘ldiring ❗";
+      msg.style.color = "red";
+
+      [username, email, password].forEach(i => {
+        if (!i.value) i.classList.add("error");
+      });
+      return;
+    }
+
+    user = {
+      username: username.value,
+      email: email.value,
+      password: password.value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    msg.innerText = "Ro‘yxatdan o‘tdingiz ✅";
+    msg.style.color = "green";
+
+    setTimeout(showLogin, 1000);
+  }
+
+  function login() {
+    let email = document.getElementById('li_email');
+    let password = document.getElementById('li_password');
+    let msg = document.getElementById('li_msg');
+
+    if (!user) {
+      msg.innerText = "Avval ro‘yxatdan o‘ting ❗";
+      msg.style.color = "red";
+      return;
+    }
+
+    if (email.value === user.email && password.value === user.password) {
+      msg.innerText = "Login muvaffaqiyatli ✅";
+      msg.style.color = "green";
+    } else {
+      msg.innerText = "Xato email yoki password ❌";
+      msg.style.color = "red";
+    }
+  }
+
+  function showLogin() {
+    document.getElementById('signup').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+  }
+
+  function showSignup() {
+    document.getElementById('signup').style.display = 'block';
+    document.getElementById('login').style.display = 'none';
+  }
+
+  function togglePassword(id) {
+    let input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
+  }
+</script> -->
+
 </body>
 </html>

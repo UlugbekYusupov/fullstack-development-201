@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <title>Todo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .task {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .status {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .pending { background: orange; }
+        .progress { background: blue; }
+        .completed { background: green; }
+
+        button {
+            margin-top: 10px;
+            padding: 7px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+        }
+
+        .add-btn {
+            width: 100%;
+            background: #1976d2;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>To Do List</h2>
+
+    <input id="taskInput" placeholder="Task yozing">
+    <button class="add-btn" onclick="addTask()">Add Task</button>
+
+    <div id="list"></div>
+</div>
+
+<script>
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    function render() {
+        let html = "";
+
+        tasks.forEach((t, i) => {
+            html += `
+            <div class="task">
+                <b>${t.text}</b>
+
+                <div class="status ${t.statusClass}">
+                    ${t.status}
+                </div>
+
+                <br>
+
+                <select onchange="changeStatus(${i}, this.value)">
+                    <option ${t.status=="Pending"?"selected":""}>Pending</option>
+                    <option ${t.status=="In Progress"?"selected":""}>In Progress</option>
+                    <option ${t.status=="Completed"?"selected":""}>Completed</option>
+                </select>
+
+                <br>
+
+                <button class="delete" onclick="del(${i})">Delete</button>
+            </div>
+            `;
+        });
+
+        document.getElementById("list").innerHTML = html;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function addTask() {
+        let input = document.getElementById("taskInput");
+
+        if (!input.value) return;
+
+        tasks.push({
+            text: input.value,
+            status: "Pending",
+            statusClass: "pending"
+        });
+
+        input.value = "";
+        render();
+    }
+
+    function del(i) {
+        tasks.splice(i, 1);
+        render();
+    }
+
+    function changeStatus(i, value) {
+        tasks[i].status = value;
+
+        if (value === "Pending") tasks[i].statusClass = "pending";
+        if (value === "In Progress") tasks[i].statusClass = "progress";
+        if (value === "Completed") tasks[i].statusClass = "completed";
+
+        render();
+    }
+
+    render();
+</script>
+
+</body>
+</html>
