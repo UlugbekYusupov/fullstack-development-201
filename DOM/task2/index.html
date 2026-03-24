@@ -67,43 +67,62 @@
 
         <h2>Password Strength Checker</h2>
 
-        <input type="password" id="password" placeholder="Enter password" autocomplete="off" oninput="checkStrength()" />
+        <input type="password" id="password" placeholder="Enter password" autocomplete="off" />
 
         <div id="result"></div>
 
     </div>
 
     <script>
+        const input = document.getElementById('password');
+        const res = document.getElementById('result');
 
-        function checkStrength() {
+        input.addEventListener('input', (e) => {
+            console.log(e)
+            const value = input.value;
 
-            let password = document.getElementById("password").value
-            let result = document.getElementById("result")
+            let hasLower = false;
+            let hasUpper = false;
+            let hasNumber = false;
+            let hasSpecial = false;
 
-            let score = 0
-
-            if (password.length >= 8) { score++ }
-
-            if (/[A-Z]/.test(password)) { score++ }
-
-            if (/[0-9]/.test(password)) { score++ }
-
-            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) { score++ }
-
-
-            if (password.length === 0) {
-                result.innerHTML = ""
-                return
+            for (let i = 0; i < value.length; i++) {
+                let ch = value[i];
+                if (ch >= 'a' && ch <= 'z') hasLower = true;
+                else if (ch >= 'A' && ch <= 'Z') hasUpper = true;
+                else if (ch >= '0' && ch <= '9') hasNumber = true;
+                else hasSpecial = true;
             }
 
-            if (score <= 1) {
-                result.innerHTML = '<div class="strength weak">Weak</div>'
-            } else if (score == 2 || score == 3) {
-                result.innerHTML = '<div class="strength medium">Medium</div>'
-            } else {
-                result.innerHTML = '<div class="strength strong">Strong</div>'
+            let score = 0;
+
+            if (value.length >= 8) score++;
+            if (hasLower) score++;
+            if (hasUpper) score++;
+            if (hasNumber) score++;
+            if (hasSpecial) score++;
+
+            res.className = "strength";
+
+            if (value.length === 0) {
+                res.innerText = "";
+                res.className = "";
             }
-        }
+            else if (score <= 2) {
+                res.innerText = "Weak";
+                res.classList.add("weak");
+            }
+            else if (score <= 4) {
+                res.innerText = "Medium";
+                res.classList.add("medium");
+            }
+            else {
+                res.innerText = "Strong";
+                res.classList.add("strong");
+            }
+            console.log(score);
+            
+        });
 
     </script>
 
