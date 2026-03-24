@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+
+    <!-- <div id="ota">
+        DIV (ota)
+        <button id="bola">Button (bola)</button>
+    </div>
+
+    <script>
+        document.getElementById("bola").addEventListener("click", function () {
+            alert("Bola button bosildi!");
+        });
+
+        document.getElementById("ota").addEventListener("click", function () {
+            alert("Ota DIV ham ishga tushdi!");
+        });
+    </script> -->
+    <!-- 
+    <div id="ota">
+        <button id="bola">Bosing</button>
+    </div>
+
+    <script>
+        document.getElementById("ota").addEventListener("click", function () {
+            alert("1. Ota (capturing)"); // BIRINCHI chiqadi
+        }, true); // <-- true = capturing
+
+        document.getElementById("bola").addEventListener("click", function () {
+            alert("2. Bola (target)"); // IKKINCHI chiqadi
+        });
+    </script> -->
+
+    <ul id="meva-royxat">
+        <li>Olma</li>
+        <li>Nok</li>
+        <li>Gilos</li>
+    </ul>
+
+    <script>
+        let royxat = document.getElementById("meva-royxat");
+
+        royxat.addEventListener("click", function (e) {
+            if (e.target.tagName === "LI") {
+                alert("Siz tanlagan meva: " + e.target.textContent);
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        console.log(window.location.href);
+        console.log(window.location.hash);
+        console.log(window.location.host);
+        console.log(window.location.hostname);
+        console.log(window.location.origin);
+        console.log(window.location.pathname);
+        console.log(window.location.port);
+        console.log(window.location.protocol);
+        console.log(window.location.search);
+
+        setTimeout(() => {
+            console.log(window.innerHeight)
+            console.log(window.innerHeight)
+        }, 1000);
+
+
+    </script>
+</body>
+
+</html>
