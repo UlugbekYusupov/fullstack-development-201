@@ -45,15 +45,15 @@ h2 {
     font-size: 12px;
 }
 
-.pending {
+.Pending {
     background: orange;
 }
 
-.progress {
+.Progress {
     background: blue;
 }
 
-.completed {
+.Completed {
     background: green;
 }
 
