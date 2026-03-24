@@ -1,3 +1,1 @@
 const greet  = "salom dunyo"
-
-
