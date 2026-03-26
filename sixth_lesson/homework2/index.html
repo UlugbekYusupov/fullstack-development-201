@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+            <h2>🏆 Add New Team</h2>
+            <form class="form" id="teamForm" autocomplete="off">
+                <input type="text" name="team" placeholder="Team Name" required>
+                <input type="number" name="wins" placeholder="Wins" min="0" required>
+                <input type="number" name="losses" placeholder="Losses" min="0" required>
+                <input type="number" name="scored" placeholder="Goals Scored" min="0" required>
+                <input type="number" name="conceded" placeholder="Goals Conceded" min="0" required>
+                <button type="submit" class="btn primary">Add Team</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>🏆 Sports Tournament Leaderboard</h2>
+            <div class="actions">
+                <button type="button" id="sortBtn" class="btn primary">Sort by Ranking</button>
+                <button type="button" id="highlightBtn" class="btn primary">Highlight Best Team</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Points</th>
+                        <th>Goal Diff</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
