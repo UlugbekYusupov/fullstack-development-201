@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>Interactive To-Do List</h2>
+        <div id="taskList"></div>
+        <button id="addBtn">Add Task</button>
+    </div>
+
+
+    <div id="modal">
+        <div class="modal-content">
+            <h3>Add Task</h3>
+            <input id="title" type="text" placeholder="Task Title">
+            <textarea id="desc" placeholder="Task Description"></textarea>
+            <select id="status">
+                <option value="pending">Pending</option>
+                <option value="progress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+            <button id="save">Save Task</button>
+            <button id="close">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
