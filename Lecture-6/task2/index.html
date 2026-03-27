@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .strength {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .weak {
+            background: #e53935;
+        }
+
+        .medium {
+            background: #f9a825;
+        }
+
+        .strong {
+            background: #2e7d32;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Password Strength Checker</h2>
+
+        <input type="password" id="password" placeholder="Enter password" autocomplete="off" />
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+        const input = document.getElementById('password');
+        const res = document.getElementById('result');
+
+        input.addEventListener('input', (e) => {
+            //console.log(e)
+            const value = input.value;
+
+            let hasLower = false;
+            let hasUpper = false;
+            let hasNumber = false;
+            let hasSpecial = false;
+
+            for (let i = 0; i < value.length; i++) {
+                let ch = value[i];
+                if (ch >= 'a' && ch <= 'z') hasLower = true;
+                else if (ch >= 'A' && ch <= 'Z') hasUpper = true;
+                else if (ch >= '0' && ch <= '9') hasNumber = true;
+                else hasSpecial = true;
+            }
+
+            let score = 0;
+
+            if (value.length >= 8) score++;
+            if (hasLower) score++;
+            if (hasUpper) score++;
+            if (hasNumber) score++;
+            if (hasSpecial) score++;
+
+            res.className = "strength";
+
+            if (value.length === 0) {
+                res.innerText = "";
+                res.className = "";
+            }
+            else if (score <= 2) {
+                res.innerText = "Weak";
+                res.classList.add("weak");
+            }
+            else if (score <= 4) {
+                res.innerText = "Medium";
+                res.classList.add("medium");
+            }
+            else {
+                res.innerText = "Strong";
+                res.classList.add("strong");
+            }
+            console.log(score);
+        });
+
+    </script>
+
+</body>
+
+</html>
