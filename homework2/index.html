@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Tournament Leaderboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-card">
+      <h2>🏆 Add New Team</h2>
+
+      <input type="text" id="teamName" placeholder="Team Name" />
+      <input type="number" id="wins" placeholder="Wins" />
+      <input type="number" id="losses" placeholder="Losses" />
+      <input type="number" id="goalsScored" placeholder="Goals Scored" />
+      <input type="number" id="goalsConceded" placeholder="Goals Conceded" />
+
+      <button id="addTeamBtn">Add Team</button>
+    </div>
+
+    <div class="table-card">
+      <h2>🏆 Sports Tournament Leaderboard</h2>
+
+      <button id="sortBtn">Sort by Ranking</button>
+      <button id="highlightBtn">Highlight Best Team</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Points</th>
+            <th>Goal Diff</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
