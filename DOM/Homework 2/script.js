@@ -46,8 +46,7 @@ function addTeam() {
 
 function sortTeams() {
     teams.sort((a, b) => {
-        return calculatePoints(b) - calculatePoints(a) ||
-            goalDiff(b) - goalDiff(a);
+        return calculatePoints(b) - calculatePoints(a) || goalDiff(b) - goalDiff(a);
     });
     renderTable();
 }

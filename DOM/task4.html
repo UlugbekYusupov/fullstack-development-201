@@ -6,12 +6,17 @@
     <title>Task4</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: #f4f4f4;
         }
 
         .traffic-box {
@@ -21,8 +26,8 @@
             width: 120px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
             align-items: center;
+            gap: 20px;
         }
 
         .light {
@@ -49,29 +54,28 @@
 <body>
 
     <div class="traffic-box">
-
-        <div class="light red"></div>
+        <div class="light red active"></div>
         <div class="light yellow"></div>
         <div class="light green"></div>
-
     </div>
 
     <script>
+        let currentIDX = 0;
+        function updateLight() {
+            const light = document.querySelectorAll('.light');
 
-        let lights = document.querySelectorAll(".light")
-        let index = 0
+            light[currentIDX].classList.remove('active')
 
-        function changeLight() {
-            lights.forEach(light => light.classList.remove("active"))
-            lights[index].classList.add("active")
-            index++
-            if (index > 2) {
-                index = 0
-            }
+            if(currentIDX >= 2) currentIDX = -1;
+
+            light[currentIDX + 1].classList.add('active')
+
+            if (currentIDX <= 3) currentIDX++;
         }
-        changeLight();
 
-        setInterval(changeLight, 2000)
+        setInterval(() => {
+            updateLight()
+        }, 1500);
 
     </script>
 

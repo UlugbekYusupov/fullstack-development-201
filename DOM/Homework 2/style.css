@@ -1,7 +1,6 @@
 body {
-    font-family: Arial;
-    background: #f4f4f4;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -19,7 +18,7 @@ h1 {
     padding: 20px;
     width: 40%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px #00000038;
 }
 
 input {
@@ -33,14 +32,10 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
-    background: #2f6fed;
+    background: #306af1;
     color: white;
     border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #1e4fc4;
+    border-radius: 5px;
 }
 
 table {
@@ -56,10 +51,10 @@ td {
 }
 
 th {
-    background: #2f6fed;
+    background: #306af1;
     color: white;
 }
 
 .highlight {
-    background-color: #c8f7c5 !important;
+    background-color: #b5fab0 !important;
 }
