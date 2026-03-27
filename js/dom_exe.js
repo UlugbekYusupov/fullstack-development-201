@@ -1,1 +1,0 @@
-const greet  = "salom dunyo"

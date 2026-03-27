@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./main.js"></script>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+ 
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      width: 500px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+ 
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+ 
+    .task-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+ 
+    .task-card .task-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+ 
+    .task-card .task-desc {
+      color: #444;
+      margin-bottom: 10px;
+    }
+ 
+    .badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 13px;
+      color: white;
+    }
+ 
+    .pending   { background: orange; }
+    .in-progress { background: blue; }
+    .completed { background: green; }
+ 
+    .delete-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+ 
+    .delete-btn:hover { background: darkred; }
+ 
+    .add-btn {
+      width: 100%;
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+ 
+    .add-btn:hover { background: #1976D2; }
+    </style>
+</head>
+<body>
+     <div class="container">
+  <h2>Interactive To-Do List</h2>
+ 
+  <div id="task-list">
+    <div class="task-card">
+      <div class="task-title">Task 1</div>
+      <div class="task-desc">Description for Task 1</div>
+      <span class="badge pending">pending</span>
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    </div>
+ 
+    <div class="task-card">
+      <div class="task-title">Task 2</div>
+      <div class="task-desc">Description for Task 2</div>
+      <span class="badge in-progress">in progress</span>
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    </div>
+ 
+    <div class="task-card">
+      <div class="task-title">Task 3</div>
+      <div class="task-desc">Description for Task 3</div>
+      <span class="badge completed">completed</span>
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    </div>
+  </div>
+ 
+  <button class="add-btn" onclick="addTask()">Add Task</button>
+</div>
+</body>
+</html>
