@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f2;
+    color: #111;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+.card {
+    width: 460px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 34px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.card h1 {
+    margin: 0 0 24px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    font-size: 16px;
+    outline: none;
+}
+
+.form input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.btn {
+    height: 48px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btn.primary {
+    background: #3b77f3;
+    color: #fff;
+}
+
+.btn.outline {
+    background: #fff;
+    color: #3b77f3;
+    border-color: #3b77f3;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 22px;
+    color: #3b77f3;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 520px;
+    }
+}
