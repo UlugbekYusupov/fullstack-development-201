@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Practice4</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .traffic-box {
+            background: black;
+            padding: 25px;
+            border-radius: 20px;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .light {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: gray;
+        }
+
+        .red.active {
+            background: red;
+        }
+
+        .yellow.active {
+            background: yellow;
+        }
+
+        .green.active {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="traffic-box">
+
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+
+    </div>
+
+    <script>
+
+        let lights = document.querySelectorAll(".light")
+        let index = 0
+
+        function changeLight() {
+            lights.forEach(light => light.classList.remove("active"))
+            lights[index].classList.add("active")
+            index++
+            if (index > 2) {
+                index = 0
+            }
+        }
+        changeLight();
+
+        setInterval(changeLight, 2000)
+
+    </script>
+
+</body>
+
+</html>
