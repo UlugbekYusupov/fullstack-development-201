@@ -1,13 +1,107 @@
 <!doctype html>
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>FullStack Development 201</h1>
-    <script src="./app.js"></script>
+    <div class="app-container">
+      <div class="calculator">
+        <input type="text" id="display" disabled />
+
+        <div class="keys">
+          <button class="btn-orange" onclick="clearDisplay()">C</button>
+          <button class="btn-orange" onclick="deleteLast()">DEL</button>
+          <button class="btn-orange" onclick="appendChar('%')">%</button>
+          <button class="btn-orange" onclick="appendChar('/')">÷</button>
+
+          <button onclick="appendChar('7')">7</button>
+          <button onclick="appendChar('8')">8</button>
+          <button onclick="appendChar('9')">9</button>
+          <button class="btn-orange" onclick="appendChar('*')">×</button>
+
+          <button onclick="appendChar('4')">4</button>
+          <button onclick="appendChar('5')">5</button>
+          <button onclick="appendChar('6')">6</button>
+          <button class="btn-orange" onclick="appendChar('-')">-</button>
+
+          <button onclick="appendChar('1')">1</button>
+          <button onclick="appendChar('2')">2</button>
+          <button onclick="appendChar('3')">3</button>
+          <button class="btn-orange" onclick="appendChar('+')">+</button>
+
+          <button class="btn-zero" onclick="appendChar('0')">0</button>
+          <button onclick="appendChar('.')">.</button>
+          <button class="btn-green" onclick="calculate()">=</button>
+        </div>
+      </div>
+
+      <div class="traffic-light-box">
+        <div class="traffic-light">
+          <div class="circle" id="red"></div>
+          <div class="circle" id="yellow"></div>
+          <div class="circle" id="green"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <h2 class="auth-title">Sign Up</h2>
+        <form id="signup-form">
+          <input
+            type="text"
+            id="signup-username"
+            class="auth-input"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="email"
+            id="signup-email"
+            class="auth-input"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            id="signup-password"
+            class="auth-input"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="auth-btn-primary">Submit</button>
+          <p class="auth-link-text">Already have an account? Login</p>
+        </form>
+      </div>
+
+      <div class="auth-card">
+        <h2 class="auth-title">Login</h2>
+        <form id="login-form">
+          <input
+            type="email"
+            id="login-email"
+            class="auth-input"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            id="login-password"
+            class="auth-input"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="auth-btn-primary">Submit</button>
+          <button type="button" class="auth-btn-outline">
+            Don't have an account? Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>

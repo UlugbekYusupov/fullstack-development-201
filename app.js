@@ -503,96 +503,176 @@
 
 // object 1
 
-const students = [
-  { name: "Ali", scores: [60, 70, 80] },
-  { name: "Vali", scores: [40, 45, 50] },
-  { name: "Sardor", scores: [90, 85, 88] },
-];
+// const students = [
+//   { name: "Alice", scores: [80, 90, 100] },
+//   { name: "Bob", scores: [50, 60, 70] },
+//   { name: "Charlie", scores: [30, 40, 20] },
+// ];
 
-function analyzeStudents(students) {
-  let topStudent = null;
-  let highestAvg = 0;
+// function analyzeStudents(students) {
+//   let topStudent = null;
+//   let highestAvg = 0;
 
-  students.forEach((student) => {
-    let sum = student.scores.reduce((a, b) => a + b, 0);
-    let avg = sum / student.scores.length;
+//   students.forEach((student) => {
+//     let sum = student.scores.reduce((a, b) => a + b, 0);
+//     let avg = sum / student.scores.length;
 
-    console.log(student.name, "average:", avg);
+//     console.log(student.name, "average:", avg);
 
-    if (avg >= 50) {
-      console.log("Passed");
-    } else {
-      console.log("Failed");
-    }
+//     if (avg >= 50) {
+//       console.log("Passed");
+//     } else {
+//       console.log("Failed");
+//     }
 
-    if (avg > highestAvg) {
-      highestAvg = avg;
-      topStudent = student.name;
-    }
-  });
+//     if (avg > highestAvg) {
+//       highestAvg = avg;
+//       topStudent = student.name;
+//     }
+//   });
 
-  console.log("Top student:", topStudent);
-}
+//   console.log(`${topStudent} has the highest average: ${highestAvg}`);
+// }
 
-analyzeStudents(students);
+// analyzeStudents(students);
 
 // object 2
 
-const cart = [
-  { id: 1, name: "Phone", price: 500, quantity: 1 },
-  { id: 2, name: "Mouse", price: 20, quantity: 2 },
-  { id: 3, name: "Keyboard", price: 50, quantity: 1 },
-];
+// const cart = [
+//   { id: 1, name: "Laptop", price: 900, quantity: 1 },
+//   { id: 2, name: "Mouse", price: 50, quantity: 2 },
+//   { id: 3, name: "Keyboard", price: 100, quantity: 1 },
+// ];
 
-function analyzeCart(cart) {
-  let total = 0;
-  let expensive = cart[0];
+// function analyzeCart(cart) {
+//   let total = 0;
+//   let expensive = cart[0];
 
-  cart.forEach((item) => {
-    total += item.price * item.quantity;
+//   cart.forEach((item) => {
+//     total += item.price * item.quantity;
 
-    if (item.price > expensive.price) {
-      expensive = item;
-    }
-  });
+//     if (item.price > expensive.price) {
+//       expensive = item;
+//     }
+//   });
 
-  if (total > 100) {
-    total *= 0.9;
+//   if (total > 100) {
+//     total *= 0.9;
+//   }
+
+//   console.log("Total price:", total);
+//   console.log("Most expensive:", expensive.name);
+// }
+
+// analyzeCart(cart);
+
+// // object 3
+
+// let products = [
+//   { id: 1, name: "Laptop", price: 1000, stock: 5 },
+//   { id: 2, name: "Phone", price: 500, stock: 10 },
+// ];
+
+// function addProduct(product) {
+//   products.push(product);
+// }
+
+// function updateStock(id, newStock) {
+//   let product = products.find((p) => p.id === id);
+//   if (product) {
+//     product.stock = newStock;
+//   }
+// }
+
+// function deleteProduct(id) {
+//   products = products.filter((p) => p.id !== id);
+// }
+
+// function findProduct(name) {
+//   return products.find((p) => p.name === name);
+// }
+
+// addProduct({ id: 3, name: "Tablet", price: 300, stock: 7 });
+// updateStock(1, 8);
+
+// console.log(findProduct("Phone"));
+
+//kalkulyator
+const display = document.getElementById("display");
+
+function appendChar(char) {
+  display.value += char;
+}
+
+function clearDisplay() {
+  display.value = "";
+}
+
+function deleteLast() {
+  display.value = display.value.toString().slice(0, -1);
+}
+
+function calculate() {
+  try {
+    display.value = eval(display.value);
+  } catch (error) {
+    display.value = "Xato";
+    setTimeout(clearDisplay, 1500);
+  }
+}
+
+// svetafor
+const redLight = document.getElementById("red");
+const yellowLight = document.getElementById("yellow");
+const greenLight = document.getElementById("green");
+
+let currentStep = 0;
+
+function changeTrafficLight() {
+  redLight.className = "circle";
+  yellowLight.className = "circle";
+  greenLight.className = "circle";
+
+  if (currentStep === 0) {
+    redLight.classList.add("active-red");
+  } else if (currentStep === 1) {
+    yellowLight.classList.add("active-yellow");
+  } else if (currentStep === 2) {
+    greenLight.classList.add("active-green");
   }
 
-  console.log("Total price:", total);
-  console.log("Most expensive:", expensive.name);
-}
-
-analyzeCart(cart);
-
-// object 3
-
-let products = [
-  { id: 1, name: "Laptop", price: 1000, stock: 5 },
-  { id: 2, name: "Phone", price: 500, stock: 10 },
-];
-
-function addProduct(product) {
-  products.push(product);
-}
-
-function updateStock(id, newStock) {
-  let product = products.find((p) => p.id === id);
-  if (product) {
-    product.stock = newStock;
+  currentStep++;
+  if (currentStep > 2) {
+    currentStep = 0;
   }
 }
 
-function deleteProduct(id) {
-  products = products.filter((p) => p.id !== id);
-}
+changeTrafficLight();
 
-function findProduct(name) {
-  return products.find((p) => p.name === name);
-}
+setInterval(changeTrafficLight, 2000);
 
-addProduct({ id: 3, name: "Tablet", price: 300, stock: 7 });
-updateStock(1, 8);
+const signupForm = document.getElementById("signup-form");
+const loginForm = document.getElementById("login-form");
 
-console.log(findProduct("Phone"));
+signupForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const username = document.getElementById("signup-username").value;
+  const email = document.getElementById("signup-email").value;
+
+  console.log("Ro'yxatdan o'tilmoqda: ", { username, email });
+  alert("Muvaffaqiyatli ro'yxatdan o'tdingiz: " + username);
+
+  signupForm.reset();
+});
+
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+
+  console.log("Tizimga kirilmoqda: ", email);
+  alert("Xush kelibsiz, " + email);
+
+  loginForm.reset();
+});
