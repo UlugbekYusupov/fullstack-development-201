@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="card" id="signupCard">
+    <h2>Sign Up</h2>
+    <input type="text" id="suUsername" placeholder="Username">
+    <input type="email" id="suEmail" placeholder="Email">
+    <input type="password" id="suPassword" placeholder="Password">
+    <button onclick="signUp()">Submit</button>
+    <p onclick="showLogin()">Already have an account? Login</p>
+  </div>
+
+  <div class="card hidden" id="loginCard">
+    <h2>Login</h2>
+    <input type="email" id="liEmail" placeholder="Email">
+    <input type="password" id="liPassword" placeholder="Password">
+    <button onclick="login()">Submit</button>
+    <p onclick="showSignup()">Don't have an account? Sign Up</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
