@@ -10,24 +10,37 @@
 
 <body>
 
+    <!-- <div class="user-page">
+        <h2>Hello, Username</h2>
+        <p>Your email: sample@mail.com</p>
+        <button>Log Out</button>
+    </div> -->
+
+    <div class="message">
+        <!-- <p class="success-msg">Your action was successful! Some message here.</p> -->
+        <!-- <p class="error-msg">An error occurred! Some message here.</p> -->
+    </div>
+
+
     <div class="wrapper">
         <form>
             <h2>Sign Up</h2>
-            <input type="text" placeholder="Username">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password"><br>
-            <button>Submit</button><br>
+            <input id="login-username" type="text" placeholder="Username" autocomplete="off">
+            <input id="login-email" type="email" placeholder="Email" autocomplete="off">
+            <input id="login-password" type="password" placeholder="Password"><br>
+            <button id="signup">Submit</button><br>
             <p style="color: #3579f6; font-weight: 450;">Already have an accaunt? <span
                     style="cursor: pointer;">Login</span></p>
         </form>
     </div>
 
+
     <div class="wrapper hide">
         <form>
             <h2>Login</h2>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password"><br>
-            <button>Submit</button><br>
+            <input id="login-username2" type="text" placeholder="Username or Email" autocomplete="off">
+            <input id="login-pass" type="password" placeholder="Password"><br>
+            <button id="login">Submit</button><br>
             <button class="secondary-btn">Don't have an accaunt? SignUp</button>
         </form>
     </div>
