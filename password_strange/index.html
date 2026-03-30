@@ -3,72 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password strength checker</title>
+    <title>Password checker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
         .container {
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
             width: 340px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);            
+            box-shadow: 0 5px 15px rgb(0,0,0,0.1);
         }
         h2 {
             margin-bottom: 30px;
         }
         input {
-            box-sizing: border-box;
             width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
             padding: 10px;
-            border-radius: 8px;
             border: 2px solid #ddd;
             outline: none;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
-        .strenght {
+        .strength {
             margin-top: 15px;
             padding: 8px;
-            border-radius: 10px;
+            border-radius: 5px;
             color: white;
             font-weight: bold;
             display: none;
-
         }
         .weak {
-            background: red;
-            color: white;
-            border-radius: 5px;
+            background-color: red;
         }
         .medium {
-            background: orange;
-            color: white;
-            border-radius: 5px;
-
+            background-color: orange;
         }
         .strong {
-            background: green;
-            border-radius: 5px;
+            background-color: green;
         }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Password Strength Checker</h2>
-        <input type="password"
-            id="password"
-            placeholder="Enter password"
-            oninput="checkStrength()">
-
-        <div id="strength" class="strength"></div>
-    </div>
-    <script src="./app.js"></script>
+        <div class="container">
+            <h2>Password strength checker </h2>
+            <input type="password" id="password" placeholder="Enter password" oninput="Checker()">
+            <div class="strength" id="strength"></div>
+        </div>
+        <script src="./app.js"></script>
 </body>
 </html>

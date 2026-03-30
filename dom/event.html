@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .form {
+            width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        input{
+            box-sizing: border-box;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        span {
+            color: blue;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- sign up -->
+         <div class="form" id="signupform">
+                <h2>Sign Up</h2>
+                <input type="text" placeholder="Username">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="password">
+                <button>Sign Up</button>
+                <p>Already have an account? <span id="toLogin">Login</span></p>
+         </div>
+
+         <!-- login -->
+          <div class="form hidden" id="loginform">
+                <h2>Login</h2>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="password">
+                <p>Don't have an account? <span id="toSignup">Sign Up</span></p>
+          </div>
+    </div>
+    <script src="./event.js"></script>
+</body>
+</html>
