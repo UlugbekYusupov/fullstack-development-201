@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team table</title>
+    <style>
+        /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* BODY */
+body {
+  background: #f5f7fb;
+  padding: 40px;
+}
+
+/* HEADER */
+h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* CARD (form va table uchun) */
+.form, .table-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 500px;
+}
+
+/* TITLE */
+.form h2,
+.table-box h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #1e73e8;
+  outline: none;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #1e73e8, #0052cc);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+/* HEADER */
+thead {
+  background: #1e73e8;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* ROW HOVER */
+tbody tr:hover {
+  background: #f1f5ff;
+}
+
+
+/* BEST TEAM */
+.best {
+  background: #d4edda !important;
+  font-weight: bold;
+}
+
+/* BUTTON GROUP */
+.table-box button {
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form, .table-box {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+    </style>
+</head>
+<body>
+        <div class="container">
+
+  <!-- FORM -->
+  <div class="form">
+    <h2>Add New Team</h2>
+    <input id="name" placeholder="Team Name">
+    <input id="wins" placeholder="Wins" type="number">
+    <input id="losses" placeholder="Losses" type="number">
+    <input id="scored" placeholder="Goals Scored" type="number">
+    <input id="conceded" placeholder="Goals Conceded" type="number">
+    <button id="addBtn">Add Team</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-box">
+    <button id="sortBtn">Sort by Ranking</button>
+    <button id="bestBtn">Highlight Best Team</button>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Points</th>
+          <th>Goal Diff</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <script src="./teamtable.js"></script>
+
+</div>
+</body>
+</html>
+

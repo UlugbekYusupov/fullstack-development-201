@@ -7,37 +7,44 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f2f2f2;
+            background: #f2f2f2;
         }
         .container {
             display: flex;
             justify-content: center;
             margin-top: 100px;
         }
-
         .form {
-            width: 300px;
+            width: 360px;
             padding: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow:0 5px 15px rgb(0,0,0,0.1);
         }
-        input{
+        input {
             box-sizing: border-box;
             width: 100%;
-            margin: 10px 0;
             padding: 10px;
-            outline: none;
+            margin: 10px 0;
         }
-        button {
+        .btn {
             width: 100%;
             padding: 10px;
             background: blue;
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
         }
+
+        .login-btn {
+            margin-top: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border: 2px solid blue;
+            padding: 10px;
+            width: 100%;
+        }
+
         span {
             color: blue;
             cursor: pointer;
@@ -45,29 +52,29 @@
         .hidden {
             display: none;
         }
-    
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- sign up -->
-         <div class="form" id="signupform">
+        <div class="container">
+            <!-- sign up -->
+             <div class="form" id="signupForm"> 
                 <h2>Sign Up</h2>
                 <input type="text" placeholder="Username">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="email">
                 <input type="password" placeholder="password">
-                <button>Sign Up</button>
-                <p>Already have an account? <span id="toLogin">Login</span></p>
-         </div>
+                <button class="btn">Submit</button>
+                <p>Already hava an account? <span id="gologin">login</span></p>
+             </div>
 
-         <!-- login -->
-          <div class="form hidden" id="loginform">
+             <!-- login -->
+              <div class="form hidden " id="loginForm">
                 <h2>Login</h2>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="password">
-                <p>Don't have an account? <span id="toSignup">Sign Up</span></p>
-          </div>
-    </div>
-    <script src="./event.js"></script>
+                <button class="btn">Submit</button>
+                <button class="login-btn">Don't hava an account?<span id="gosignup">Sign Up</span></button>
+              </div>
+        </div>
+        <script src="./event.js"></script>
 </body>
 </html>
