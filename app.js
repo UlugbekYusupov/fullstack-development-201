@@ -1,177 +1,175 @@
 
+// // lecture 7 object 
+// // 1
+// const students = [
+//   { name: "Alice", scores: [80, 90, 100] },
+//   { name: "Bob", scores: [50, 60, 70] },
+//   { name: "Charlie", scores: [30, 40, 20] }
+// ];
+// function calculateAverage(scores) {
+//   const total = scores.reduce((acc, score) => acc + score, 0);
+//   return total / scores.length;
+// }
+// function hasPassed(average) {
+//   return average >= 50;
+// }
+// function findTopPerformer(students) {
+//   let topStudent = students[0];
+//   let highestAverage = calculateAverage(topStudent.scores);
+
+//   students.forEach(student => {
+//     const avg = calculateAverage(student.scores);
+//     if (avg > highestAverage) {
+//       topStudent = student;
+//       highestAverage = avg;
+//     }
+//   });
+
+//   return topStudent.name;
+// }
+// students.forEach(student => {
+//   const avg = calculateAverage(student.scores);
+//   const passed = hasPassed(avg);
+//   console.log(`${student.name}ning o'rtacha bahosi: ${avg}`);
+//   console.log(`${student.name} ${passed ? 'o\'tgan' : 'o\'tmagan'}`);
+// });
+// const topPerformer = findTopPerformer(students);
+// console.log(`Eng yaxshi natija ko'rsatgan talaba: ${topPerformer}`);
 
 
-// lecture 7
-// 1
-const students = [
-  { name: "Alice", scores: [80, 90, 100] },
-  { name: "Bob", scores: [50, 60, 70] },
-  { name: "Charlie", scores: [30, 40, 20] }
-];
-function calculateAverage(scores) {
-  const total = scores.reduce((acc, score) => acc + score, 0);
-  return total / scores.length;
-}
-function hasPassed(average) {
-  return average >= 50;
-}
-function findTopPerformer(students) {
-  let topStudent = students[0];
-  let highestAverage = calculateAverage(topStudent.scores);
+// // 2
+// const cart = [
+//   { id: 1, name: "Laptop", price: 900, quantity: 1 },
+//   { id: 2, name: "Mouse", price: 50, quantity: 2 },
+//   { id: 3, name: "Keyboard", price: 100, quantity: 1 }
+// ];
+// function calculateTotal(cart) {
+//   return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+// }
+// function applyDiscount(total) {
+//   return total > 100 ? total * 0.9 : total;
+// }
+// function findMostExpensiveItem(cart) {
+//   return cart.reduce((maxItem, item) => {
+//     const itemTotalPrice = item.price * item.quantity;
+//     return itemTotalPrice > (maxItem.price * maxItem.quantity) ? item : maxItem;
+//   });
+// }
 
-  students.forEach(student => {
-    const avg = calculateAverage(student.scores);
-    if (avg > highestAverage) {
-      topStudent = student;
-      highestAverage = avg;
-    }
-  });
+// const total = calculateTotal(cart);
+// const totalAfterDiscount = applyDiscount(total);
+// const mostExpensiveItem = findMostExpensiveItem(cart);
 
-  return topStudent.name;
-}
-students.forEach(student => {
-  const avg = calculateAverage(student.scores);
-  const passed = hasPassed(avg);
-  console.log(`${student.name}ning o'rtacha bahosi: ${avg}`);
-  console.log(`${student.name} ${passed ? 'o\'tgan' : 'o\'tmagan'}`);
-});
-const topPerformer = findTopPerformer(students);
-console.log(`Eng yaxshi natija ko'rsatgan talaba: ${topPerformer}`);
+// console.log(`Total Price: $${totalAfterDiscount} (after discount)`);
+// console.log(`Most expensive item: ${mostExpensiveItem.name} - $${mostExpensiveItem.price}`);
 
 
-// 2
-const cart = [
-  { id: 1, name: "Laptop", price: 900, quantity: 1 },
-  { id: 2, name: "Mouse", price: 50, quantity: 2 },
-  { id: 3, name: "Keyboard", price: 100, quantity: 1 }
-];
-function calculateTotal(cart) {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-}
-function applyDiscount(total) {
-  return total > 100 ? total * 0.9 : total;
-}
-function findMostExpensiveItem(cart) {
-  return cart.reduce((maxItem, item) => {
-    const itemTotalPrice = item.price * item.quantity;
-    return itemTotalPrice > (maxItem.price * maxItem.quantity) ? item : maxItem;
-  });
-}
-
-const total = calculateTotal(cart);
-const totalAfterDiscount = applyDiscount(total);
-const mostExpensiveItem = findMostExpensiveItem(cart);
-
-console.log(`Total Price: $${totalAfterDiscount} (after discount)`);
-console.log(`Most expensive item: ${mostExpensiveItem.name} - $${mostExpensiveItem.price}`);
-
-
-// 3
-const products = [
-  { id: 1, name: "Laptop", price: 1200, stock: 10 },
-  { id: 2, name: "Phone", price: 700, stock: 15 },
-];
-function addProduct(newProduct) {
-  products.push(newProduct);
-}
-function updateStock(productId, newStock) {
-  const product = products.find(item => item.id === productId);
-  if (product) {
-    product.stock = newStock;
-  } else {
-    console.log('Product not found');
-  }
-}
-function deleteProduct(productId) {
-  const index = products.findIndex(item => item.id === productId);
-  if (index !== -1) {
-    products.splice(index, 1);
-  } else {
-    console.log('Product not found');
-  }
-}
-function findProduct(productName) {
-  return products.find(item => item.name.toLowerCase() === productName.toLowerCase());
-}
-addProduct({ id: 3, name: "Tablet", price: 400, stock: 20 });
-updateStock(1, 12);
-deleteProduct(2);
-const foundProduct = findProduct("Laptop");
-console.log(foundProduct);
-console.log(products);
+// // 3
+// const products = [
+//   { id: 1, name: "Laptop", price: 1200, stock: 10 },
+//   { id: 2, name: "Phone", price: 700, stock: 15 },
+// ];
+// function addProduct(newProduct) {
+//   products.push(newProduct);
+// }
+// function updateStock(productId, newStock) {
+//   const product = products.find(item => item.id === productId);
+//   if (product) {
+//     product.stock = newStock;
+//   } else {
+//     console.log('Product not found');
+//   }
+// }
+// function deleteProduct(productId) {
+//   const index = products.findIndex(item => item.id === productId);
+//   if (index !== -1) {
+//     products.splice(index, 1);
+//   } else {
+//     console.log('Product not found');
+//   }
+// }
+// function findProduct(productName) {
+//   return products.find(item => item.name.toLowerCase() === productName.toLowerCase());
+// }
+// addProduct({ id: 3, name: "Tablet", price: 400, stock: 20 });
+// updateStock(1, 12);
+// deleteProduct(2);
+// const foundProduct = findProduct("Laptop");
+// console.log(foundProduct);
+// console.log(products);
 
 
-// 4
-const posts = [
-  { author: "Alice", likes: 100, comments: 20, shares: 5, commentsDetails: [{ user: "John", message: "Great post!" }] },
-  { author: "Bob", likes: 200, comments: 50, shares: 10, commentsDetails: [{ user: "Alice", message: "Interesting post!" }] }
-];
-function findMostLikedPost(posts) {
-  return posts.reduce((mostLiked, post) => {
-    return post.likes > mostLiked.likes ? post : mostLiked;
-  });
-}
-function calculateTotalEngagement(posts) {
-  return posts.reduce((total, post) => {
-    return total + post.likes + post.comments + post.shares;
-  }, 0);
-}
-const mostLikedPost = findMostLikedPost(posts);
-console.log("Most liked post:", mostLikedPost);
-const totalEngagement = calculateTotalEngagement(posts);
-console.log("Total engagement:", totalEngagement);
-posts.forEach(post => {
-  console.log(`${post.author}'s comments:`);
-  post.commentsDetails.forEach(comment => {
-    console.log(`User: ${comment.user}, Message: ${comment.message}`);
-  });
-});
+// // 4
+// const posts = [
+//   { author: "Alice", likes: 100, comments: 20, shares: 5, commentsDetails: [{ user: "John", message: "Great post!" }] },
+//   { author: "Bob", likes: 200, comments: 50, shares: 10, commentsDetails: [{ user: "Alice", message: "Interesting post!" }] }
+// ];
+// function findMostLikedPost(posts) {
+//   return posts.reduce((mostLiked, post) => {
+//     return post.likes > mostLiked.likes ? post : mostLiked;
+//   });
+// }
+// function calculateTotalEngagement(posts) {
+//   return posts.reduce((total, post) => {
+//     return total + post.likes + post.comments + post.shares;
+//   }, 0);
+// }
+// const mostLikedPost = findMostLikedPost(posts);
+// console.log("Most liked post:", mostLikedPost);
+// const totalEngagement = calculateTotalEngagement(posts);
+// console.log("Total engagement:", totalEngagement);
+// posts.forEach(post => {
+//   console.log(`${post.author}'s comments:`);
+//   post.commentsDetails.forEach(comment => {
+//     console.log(`User: ${comment.user}, Message: ${comment.message}`);
+//   });
+// });
 
 
-// 5
-const teams = [
-  { name: "Team A", wins: 5, losses: 2, points: 15, goalsScored: 20, goalsConceded: 10 },
-  { name: "Team B", wins: 6, losses: 1, points: 18, goalsScored: 25, goalsConceded: 12 },
-];
-function sortTeamsByRanking(teams) {
-  return teams.sort((a, b) => b.points - a.points); // Eng ko'p ochkoga ega jamoalar yuqorida bo'ladi
-}
-function findBestPerformingTeam(teams) {
-  return teams.reduce((bestTeam, team) => {
-    return team.points > bestTeam.points ? team : bestTeam;
-  });
-}
-const sortedTeams = sortTeamsByRanking(teams);
-console.log("Sorted Teams:", sortedTeams);
-const bestTeam = findBestPerformingTeam(teams);
-console.log("Best Performing Team:", bestTeam);
-teams.forEach(team => {
-  console.log(`${team.name}: Wins: ${team.wins}, Losses: ${team.losses}, Points: ${team.points}, Goals Scored: ${team.goalsScored}, Goals Conceded: ${team.goalsConceded}`);
-});
+// // 5
+// const teams = [
+//   { name: "Team A", wins: 5, losses: 2, points: 15, goalsScored: 20, goalsConceded: 10 },
+//   { name: "Team B", wins: 6, losses: 1, points: 18, goalsScored: 25, goalsConceded: 12 },
+// ];
+// function sortTeamsByRanking(teams) {
+//   return teams.sort((a, b) => b.points - a.points); // Eng ko'p ochkoga ega jamoalar yuqorida bo'ladi
+// }
+// function findBestPerformingTeam(teams) {
+//   return teams.reduce((bestTeam, team) => {
+//     return team.points > bestTeam.points ? team : bestTeam;
+//   });
+// }
+// const sortedTeams = sortTeamsByRanking(teams);
+// console.log("Sorted Teams:", sortedTeams);
+// const bestTeam = findBestPerformingTeam(teams);
+// console.log("Best Performing Team:", bestTeam);
+// teams.forEach(team => {
+//   console.log(`${team.name}: Wins: ${team.wins}, Losses: ${team.losses}, Points: ${team.points}, Goals Scored: ${team.goalsScored}, Goals Conceded: ${team.goalsConceded}`);
+// });
 
 
-// 6
-const inventory = [
-  { itemName: "Laptop", category: "Electronics", stock: 5 },
-  { itemName: "Phone", category: "Electronics", stock: 10 },
-  { itemName: "Table", category: "Furniture", stock: 2 },
-  { itemName: "Chair", category: "Furniture", stock: 7 }
-];
-function totalStockByCategory(category) {
-  return inventory
-    .filter((item) => item.category === category)
-    .reduce((sum, item) => sum + item.stock, 0);
-}
-function alertLowStock(threshold = 5) {
-  inventory.forEach(item => {
-    if (item.stock <= threshold) {
-      console.log(`ALERT: Low stock for ${item.itemName} in ${item.category}. Stock: ${item.stock}`);
-    }
-  });
-}
-const electronicsStock = totalStockByCategory("Electronics");
-console.log("Total stock in Electronics:", electronicsStock);
-alertLowStock(5);
+// // 6
+// const inventory = [
+//   { itemName: "Laptop", category: "Electronics", stock: 5 },
+//   { itemName: "Phone", category: "Electronics", stock: 10 },
+//   { itemName: "Table", category: "Furniture", stock: 2 },
+//   { itemName: "Chair", category: "Furniture", stock: 7 }
+// ];
+// function totalStockByCategory(category) {
+//   return inventory
+//     .filter((item) => item.category === category)
+//     .reduce((sum, item) => sum + item.stock, 0);
+// }
+// function alertLowStock(threshold = 5) {
+//   inventory.forEach(item => {
+//     if (item.stock <= threshold) {
+//       console.log(`ALERT: Low stock for ${item.itemName} in ${item.category}. Stock: ${item.stock}`);
+//     }
+//   });
+// }
+// const electronicsStock = totalStockByCategory("Electronics");
+// console.log("Total stock in Electronics:", electronicsStock);
+// alertLowStock(5);
 
 
 
