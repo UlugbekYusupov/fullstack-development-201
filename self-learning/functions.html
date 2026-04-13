@@ -31,6 +31,26 @@
         let {name, age, job, hobbies: {games, sport}} = person
         console.log(name)
 
+
+        /// **************************************** \\\
+        /////////////////. Massivlar .\\\\\\\\\\\\\\\\\\
+        /// **************************************** \\\
+
+        const sample = ['One', 'Two', 'Three', 'Four', 'Five']
+        console.log(`Index bilan element olish(array[0]): ${sample[0]}`)
+        console.log(`Element qo'shish(array.push('Six')): ${sample.push('Six')} | ${sample}`)
+        console.log(`Element o'chirish(array.pop()): ${sample.pop()} | ${sample}`)
+        console.log(`Boshiga Element qo'shish(array.unshift(value)): ${sample.unshift('Zero')} | ${sample}`)
+        console.log(`Boshidan Element o'chirish(array.shift()): ${sample.shift()} | ${sample}`)
+
+        const cars = ['BMW', 'Aux', 'Cherry', 'Capone', 'Malibu']
+
+        for(let car of cars){
+            console.log(car)
+        }
+
+        cars.forEach((item)=>{console.log('Bor', item)})
+        
     </script>
 </body>
 
