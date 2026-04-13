@@ -58,7 +58,7 @@ button {
   transition: 0.1s;
 }
 button:active {
-  transform: scale(0.5);
+  transform: scale(0.8);
 }
 .btn-orange {
   background-color: #ff9800;
@@ -102,94 +102,4 @@ button:active {
 .active-green {
   background-color: #34c759;
   box-shadow: 0 0 20px #34c759;
-}
-
-/* sign up va login */
-.auth-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.auth-card {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  width: 340px;
-  display: flex;
-  flex-direction: column;
-}
-
-.auth-title {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 25px;
-  font-size: 26px;
-  color: #000;
-}
-
-.auth-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.auth-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 15px;
-  outline: none;
-  transition: 0.2s;
-}
-
-.auth-input:focus {
-  border-color: #007bff;
-}
-
-.auth-btn-primary {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.auth-btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.auth-btn-outline {
-  background-color: white;
-  color: #007bff;
-  border: 2px solid #007bff;
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: -5px;
-}
-
-.auth-btn-outline:hover {
-  background-color: #f0f8ff;
-}
-
-.auth-link-text {
-  text-align: center;
-  color: #007bff;
-  cursor: pointer;
-  margin: 10px 0 0 0;
-  font-size: 15px;
-}
-
-.auth-link-text:hover {
-  text-decoration: underline;
 }

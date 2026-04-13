@@ -650,29 +650,3 @@ function changeTrafficLight() {
 changeTrafficLight();
 
 setInterval(changeTrafficLight, 2000);
-
-const signupForm = document.getElementById("signup-form");
-const loginForm = document.getElementById("login-form");
-
-signupForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const username = document.getElementById("signup-username").value;
-  const email = document.getElementById("signup-email").value;
-
-  console.log("Ro'yxatdan o'tilmoqda: ", { username, email });
-  alert("Muvaffaqiyatli ro'yxatdan o'tdingiz: " + username);
-
-  signupForm.reset();
-});
-
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const email = document.getElementById("login-email").value;
-
-  console.log("Tizimga kirilmoqda: ", email);
-  alert("Xush kelibsiz, " + email);
-
-  loginForm.reset();
-});
