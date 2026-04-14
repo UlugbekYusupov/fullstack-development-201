@@ -293,3 +293,23 @@
 // }
 
 // document.body.appendChild(taskContainer);
+
+document.getElementById("child").addEventListener("click", function () {
+  event.stopPropagation();
+
+  console.log("Child is ckicked");
+});
+
+document.getElementById("parent").addEventListener("click", function (event) {
+  console.log("Parent is ckicked");
+});
+
+document.getElementById("grandparent").addEventListener("click", function () {
+  console.log("Grandparent is ckicked");
+});
+
+document.getElementById("list").addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    console.log(`Clicked: ${event.target.textContent}`);
+  }
+});
