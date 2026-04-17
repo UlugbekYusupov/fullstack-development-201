@@ -1,8 +1,7 @@
-    import users from "../data/db.js";
-    import generateIde from "../utils/generateId.js";
+    import {users} from "../data/db.js";
     import bcrypt from "bcrypt";
     import jwt from "jsonwebtoken";
-
+    import { v4 as uuidv4 } from 'uuid';
 
     export async function register(req, res){
 
@@ -20,7 +19,7 @@
         }
         const passwordHash = await bcrypt.hash(password, 10)
         const newUser = {
-            id: generateIde(users),
+            id: uuidv4(),
             username,
             email,
             password: passwordHash,
