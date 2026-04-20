@@ -127,3 +127,12 @@ try {
     localStorage.clear()
     window.location.reload()
 }
+
+async function test() {
+    res = await fetch('http://127.0.0.1:8000/')
+    data = await res.json()
+
+    showAlert(data.message)
+}
+
+test()
