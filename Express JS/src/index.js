@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
@@ -84,7 +84,6 @@ app.get("/users/:id", (req, res) => {
   res.status(200).send({ ok: true, data: result });
 });
 
-
 // PUT request, updates entire record
 app.put("/users/:id", (req, res) => {
   const { body = {}, params = {} } = req;
@@ -111,7 +110,7 @@ app.put("/users/:id", (req, res) => {
       .send({ success: false, message: "User with this id not found" });
 
   mockUsers[findUserIndex] = {
-    id: findUserIndex+1,
+    id: mockUsers[findUserIndex].id,
     name: name?.trim() ?? mockUsers[findUserIndex].name,
     email: email?.trim() ?? mockUsers[findUserIndex].email,
     role: role?.trim() ?? mockUsers[findUserIndex].role,
@@ -121,5 +120,59 @@ app.put("/users/:id", (req, res) => {
   res.status(201).send({
     success: true,
     data: mockUsers[findUserIndex],
+  });
+});
+
+// PATCH request updates part of record, not all
+app.patch("/users/:id", (req, res) => {
+  const { body = {}, params = {} } = req;
+  const { id } = params;
+  const parsedId = parseInt(id);
+  if (isNaN(parsedId))
+    return res
+      .status(400)
+      .send({ success: false, message: "Id parameter is not a intager" });
+
+  if (body) {
+    return res.status(400).send({
+      success: false,
+      message: "body parameters missing",
+    });
+  }
+
+  const findUserIndex = mockUsers.findIndex((e) => e.id === parsedId);
+  if (findUserIndex === -1)
+    return res
+      .status(404)
+      .send({ success: false, message: "User with this id not found" });
+
+  mockUsers[findUserIndex] = { ...mockUsers[findUserIndex], ...body };
+  
+  res.status(201).send({
+    success: true,
+    data: mockUsers[findUserIndex],
+  });
+});
+
+// DELETE - deletes a record
+app.delete("/users/:id", (req, res) => {
+  const { id } = req.params;
+  const parsedId = parseInt(id);
+  if (isNaN(parsedId))
+    return res
+      .status(400)
+      .send({ success: false, message: "Id parameter is not a intager" });
+
+  const findUserIndex = mockUsers.findIndex((e) => e.id === parsedId);
+  if (findUserIndex === -1)
+    return res
+      .status(404)
+      .send({ success: false, message: "User with this id not found" });
+
+  mockUsers.splice(findUserIndex, 1)
+  
+  res.status(201).send({
+    success: true,
+    message: "Deleted successfully",
   });
 });
