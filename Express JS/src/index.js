@@ -3,12 +3,21 @@ import { mockUsers } from "./db.js";
 
 const app = express();
 const port = 3000;
+const host = '127.0.0.1'
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+// Middlewares
+const LoggingMiddleWare = (req, res, next) => {
+  console.log(`${req.method} - http://${host}:${port}${req.url}`);
+  next();
+};
+
+app.use(LoggingMiddleWare);
+
+app.listen(port, host, () => {
+  console.log(`App listening on http://${host}:${port}`);
 });
 
 app.get("/", (req, res) => {
@@ -147,7 +156,7 @@ app.patch("/users/:id", (req, res) => {
       .send({ success: false, message: "User with this id not found" });
 
   mockUsers[findUserIndex] = { ...mockUsers[findUserIndex], ...body };
-  
+
   res.status(201).send({
     success: true,
     data: mockUsers[findUserIndex],
@@ -169,8 +178,8 @@ app.delete("/users/:id", (req, res) => {
       .status(404)
       .send({ success: false, message: "User with this id not found" });
 
-  mockUsers.splice(findUserIndex, 1)
-  
+  mockUsers.splice(findUserIndex, 1);
+
   res.status(201).send({
     success: true,
     message: "Deleted successfully",
