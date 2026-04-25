@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+    <style>
+        *{
+            box-sizing: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px #0000001f;
+            width: 250px;
+        }
+
+        #display {
+            width: 92%;
+            height: 50px;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            background: #b7b7b7;
+            border-radius: 8px;
+            text-align: right;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .first_row {
+            width: 100%;
+            display: flex;
+            gap: 5px;
+        }
+
+        .first_row button {
+            flex-grow: 1;
+        }
+
+        .other-rows {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .other-rows button {
+            flex-grow: 1;
+        }
+
+        button {
+            width: 20%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #e6e5e5;
+        }
+
+        .operator {
+            background: #f28c28;
+            color: white;
+        }
+
+        .equal {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .clear {
+            background: #f28c28;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <input id="display" readonly>
+
+        <div class="buttons">
+            <div class="first_row">
+                <button class="clear" onclick="clearDisplay()">C</button>
+                <button class="clear" onclick="deleteLast()">DEL</button>
+                <button class="operator" onclick="append('%')">%</button>
+                <button class="operator" onclick="append('/')">÷</button>
+            </div>
+
+            <div class="other-rows">
+                <button onclick="append('7')">7</button>
+                <button onclick="append('8')">8</button>
+                <button onclick="append('9')">9</button>
+                <button class="operator" onclick="append('*')">×</button>
+
+                <button onclick="append('4')">4</button>
+                <button onclick="append('5')">5</button>
+                <button onclick="append('6')">6</button>
+                <button class="operator" onclick="append('-')">-</button>
+
+                <button onclick="append('1')">1</button>
+                <button onclick="append('2')">2</button>
+                <button onclick="append('3')">3</button>
+                <button class="operator" onclick="append('+')">+</button>
+
+                <button onclick="append('0')">0</button>
+                <button onclick="append('.')">.</button>
+                <button class="equal" onclick="calculate()">=</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let display = document.getElementById("display")
+
+        function append(value) {
+            display.value += value
+        }
+
+        function clearDisplay() {
+            display.value = ""
+        }
+
+        function deleteLast() {
+            display.value = display.value.slice(0, -1)
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value)
+            } catch {
+                display.value = "Error"
+                setTimeout(()=>{
+                    clearDisplay()
+                }, 1500)
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

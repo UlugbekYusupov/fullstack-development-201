@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread va Rest operatorlari</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // REST — Yig'adi (ko'pdan → birga)
+        function yig(...sonlar) { }  // Argumentlarni yig'adi
+        const [a, ...qolganlar] = arr; // Elementlarni yig'adi
+
+        // SPREAD — Yoyadi (birdan → ko'pga)
+        Math.max(...arr);            // Array'ni yoyadi
+        const yangi = [...arr1, ...arr2]; // Yoyib birlashtiradi
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntions</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1-Mashq: Eski kodni yangilash
+        // Quyidagi eski usulda yozilgan funksiyani zamonaviy Arrow Function ko'rinishida qayta yozing (jingalak qavslar va return qolsin, faqat sintaksisni o'zgartiring):
+
+        let qoldiqniTop = function (son) {
+            return son % 2;
+        };
+
+        let qoldiqniTop2 = son => son % 2;
+        console.log(qoldiqniTop(5))
+        console.log(qoldiqniTop2(5))
+
+        // 2-Mashq: Super qisqartirish (One-liner)
+        // Quyidagi funksiya ob-havo haroratini o'lchaydi. Uni iloji boricha eng qisqa holatga (Implicit Return va qavslarsiz parametr) keltirib, bitta qatorda yozib ko'rsating:
+
+        let haroratniTekshir = (gradus) => {
+            return gradus > 30 ? "Issiq" : "Yaxshi";
+        };
+
+        let haroratniTekshir2 = gradus => gradus > 30 ? "Issiq" : "Yaxshi";
+        console.log(haroratniTekshir(25))
+        console.log(haroratniTekshir2(25))
+
+        // 3-Mashq: Xatoni toping
+        // Sizning hamkasbingiz Arrow function yozdi, lekin konsolda undefined qaytyapti. Kodda qanday mantiqiy xato bor va uni qanday tuzatamiz?
+
+        let ismniKattaQil = (ism) => {
+            // ism.toUpperCase(); // Bu funksiya so'zni katta harflarga o'zgartiradi
+            return ism.toUpperCase() // return qo'shildi
+        }
+        console.log(ismniKattaQil("ali"));
+
+    </script>
+</body>
+
+</html>

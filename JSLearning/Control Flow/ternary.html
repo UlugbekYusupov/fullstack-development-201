@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shart operatorlari</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1 - Mashq: Juft yoki Toq sonni aniqlash
+        // Sizda let raqam = 7; bor.Agar raqamni 2 ga bo'lganda qoldiq 0 ga teng bo'lsa(raqam % 2 === 0), bu "Juft son", aks holda "Toq son".
+        // Shu mantiqni oddiy if/else ishlatmasdan, faqatgina Ternary Operator yordamida bitta qatorda yozib, natijani konsolga chiqaring.
+        let raqam = 7;
+        console.log( raqam%2===0 ? "Juft son" : "Toq son" )
+        // 2 - Mashq: Mijoz chegirmasi
+        // Tasavvur qiling, onlayn do 'koningiz bor.
+        // Sizda let azoMi = true; (Ya'ni mijoz ro'yxatdan o'tgan a'zomi ?) degan o'zgaruvchi bor.
+        // Yana bitta let narx; degan o'zgaruvchi oching.
+        // Ternary operator orqali narxni belgilang: agar u a'zo bo'lsa narx 10000 bo'lsin, a'zo bo'lmasa 15000 bo'lsin.Natijani tekshirib ko'ring.
+        let azoMi = true;
+        let narx = azoMi ? 10000 : 15000
+        console.log(narx)
+    </script>
+</body>
+
+</html>

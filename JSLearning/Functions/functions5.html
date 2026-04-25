@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntions</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+// 1-Mashq: Ismlar to'qnashuvi detektivi
+// Quyidagi kod ishlaganda konsolda qanday yozuv paydo bo'ladi?
+
+let ism = "Jahongir"; // Global
+
+function ismniOzgartir() {
+  let ism = "Alisher"; // Local
+  console.log(ism); 
+}
+
+ismniOzgartir();
+console.log(ism); 
+
+// Alisher
+// Jahongir
+
+
+// 2-Mashq: Qavslar qamali (Block Scope)
+// Ushbu kod ishlaydimi yoki xato (Error) beradimi? Agar xato bersa, uni qanday qilib to'g'rilaymiz?
+
+let yosh = 20;
+xabar = null;
+if (yosh >= 18) {
+    var xabar = "Siz kattasiz";
+}
+
+console.log(xabar); // Siz kattasiz deb chiqadi
+
+// 3-Mashq: for sikli va qamrov
+// Ushbu kodni e'tibor bilan o'qing. Ekranga nima chiqadi? Nima uchun i o'zgaruvchisi topilmadi deb xato bermaydi yoku beradimi?
+
+for (let i = 1; i <= 3; i++) {
+  console.log("Sikl ichida: " + i);
+}
+
+console.log("Sikldan tashqarida: " + "i"); // i faqat for ichida mavjud
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+
+        // 2
+        const greet2 = function (name) {
+            return "Hello, " + name + "!";
+        };
+
+        // 3
+        const greet3 = (name) => {
+            return "Hello, " + name + "!";
+        };
+
+        // 4
+        const greet4 = name => "Hello, " + name + "!";
+
+        // 5
+        const greet5 = new Function("name", "return 'Hello, ' + name + '!';");
+
+        function isPrime(n) {
+            if (n <= 1) return false;
+
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0) return false;
+            }
+
+            return true;
+        }
+
+        function countDigits(n) {
+            return Math.abs(n).toString().length;
+        }
+
+        function isPalindrome(n) {
+            let str = n.toString();
+            let reversed = str.split("").reverse().join("");
+            return str === reversed;
+        }
+
+        function isArmstrong(n) {
+            let str = n.toString();
+            let power = str.length;
+
+            let sum = 0;
+
+            for (let digit of str) {
+                sum += Math.pow(Number(digit), power);
+            }
+
+            return sum === n;
+        }
+
+
+        function createCounter(start) {
+            let count = start;
+
+            return {
+                increment() {
+                    count++;
+                },
+                decrement() {
+                    count--;
+                },
+                getCount() {
+                    return count;
+                }
+            };
+        }
+
+
+        function orderFood(name, address, food) {
+            return `Salom ${name}, siz buyurtma bergan ${food} ovqat ${address} ga tez orada yetkaziladi.`;
+        }
+
+        function lazyAdder(a) {
+            return function (b) {
+                return a + b;
+            };
+        }
+
+        const add5 = lazyAdder(5);
+
+        console.log(add5(10)); // 15
+        console.log(add5(20)); // 25
+
+
+    </script>
+</body>
+
+</html>

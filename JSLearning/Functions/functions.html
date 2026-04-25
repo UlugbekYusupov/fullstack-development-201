@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntions</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+
+        // 1-Mashq: Kvadrat hisoblagich
+        // Shunday funksiya yaratingki, uning nomi kvadrat bo'lsin. U bitta parametr (son) qabul qilsin. Ichkarida o'sha sonni o'ziga-o'zini ko'paytirib (ya'ni kvadratini topib), return orqali qaytarib bersin.
+        // Keyin uni chaqirib, misol uchun 5 ning kvadratini konsolga chiqaring.
+
+        function kvadrat(son){
+            return son * son;
+        }
+        console.log(kvadrat(5))
+
+        // 2-Mashq: Kattasini top (Ternary operator va Funksiya birgalikda)
+        // kattasiniTop nomli funksiya yarating. U ikkita parametr (a va b) qabul qilsin.
+        // Funksiya ichida o'tgan darsda o'rganganimiz Ternary operator (shart ? rost : yolg'on) yordamida qaysi biri katta ekanligini aniqlang va kattasini return qiling.
+
+        const KattasiniTop = (a, b) => {
+            return a > b ? a : b;
+        }
+        console.log(KattasiniTop(5, 9))
+
+        // 3-Mashq: Zamonaviylashtirish
+        // Quyidagi eski usulda yozilgan funksiyani zamonaviy Arrow Function (=>) ko'rinishiga o'tkazib (qisqartirib) yozing:
+
+        // function salomlash(ism) {
+        //   return "Salom, " + ism + "!";
+        // }
+
+        const salomlash = (ism) => {return `Salom, ${ism}!`}
+        console.log(salomlash('Anvar'))
+
+    </script>
+</body>
+
+</html>

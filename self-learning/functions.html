@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main.App.Js</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+    <script>
+        // Objects and destruktizatsiya
+
+        person = {
+            name: "Jafar",
+            age: 21,
+            job: "Software Engeneer",
+            hobbies: {
+                sport: ['footbal', 'running', 'swimming'],
+                games: ['CS2', 'Mortal Combat']
+            }
+        }
+
+        for(let key in person){
+            console.log(key)
+        }
+
+        // destruktizatsiya
+        let {name, age, job, hobbies: {games, sport}} = person
+        console.log(name)
+
+
+        /// **************************************** \\\
+        /////////////////. Massivlar .\\\\\\\\\\\\\\\\\\
+        /// **************************************** \\\
+
+        const sample = ['One', 'Two', 'Three', 'Four', 'Five']
+        console.log(`Index bilan element olish(array[0]): ${sample[0]}`)
+        console.log(`Element qo'shish(array.push('Six')): ${sample.push('Six')} | ${sample}`)
+        console.log(`Element o'chirish(array.pop()): ${sample.pop()} | ${sample}`)
+        console.log(`Boshiga Element qo'shish(array.unshift(value)): ${sample.unshift('Zero')} | ${sample}`)
+        console.log(`Boshidan Element o'chirish(array.shift()): ${sample.shift()} | ${sample}`)
+
+        const cars = ['BMW', 'Aux', 'Cherry', 'Capone', 'Malibu']
+
+        for(let car of cars){
+            console.log(car)
+        }
+
+        cars.forEach((item)=>{console.log('Bor', item)})
+
+
+        /// **************************************** \\\
+        //////////////////. Clonlash .\\\\\\\\\\\\\\\\\\
+        /// **************************************** \\\
+
+        const sampleObj = {
+            name: "SolutionX",
+            type: "Company",
+            year: 2014,
+            size: 200,
+            empCount: 184
+        }
+
+        // Intteratsiya
+        const copyObj = (obj) => {
+            const clone = {}
+            for(let key in obj){
+                clone[key] = obj[key]
+            }
+            return clone
+        }
+        const newObj = copyObj(sampleObj)
+        console.log(sampleObj)
+        console.log(newObj)
+
+        // #2 Object Assign
+        const newObj2 = Object.assign({holder: "Salombek Ashurov"}, sampleObj)
+        console.log(sampleObj)
+        console.log(newObj2)
+
+
+        // #3 Spread Operator ES8
+        const newObj3 = {...sampleObj}
+        console.log(sampleObj)
+        console.log(newObj3)
+    </script>
+</body>
+
+</html>

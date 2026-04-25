@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shart operatorlari</title>
+</head>
+
+<body>
+
+        <script src="https://cdn.jsdelivr.net/gh/Abbosjondev/instant-console/console.js"></script>
+        
+        
+        <script>
+
+
+
+// reduce() - Massivdagi barcha elementlarni aylanib chiqib, ulardan bitta umumiy natija (masalan, yig'indi yoki eng kattasini topish) yasash uchun ishlatiladi.
+// map() - Massivdagi har bir elementni o'zgartirib, yangi massiv yaratish uchun ishlatiladi.
+// filter() - Berilgan shartga mos keladigan elementlarni saralab olib, yangi massiv yaratadi.
+// find() - Berilgan shartga mos kelgan birinchi elementni topib beradi.
+// sort() - Massiv elementlarini tartiblash uchun ishlatiladi.
+
+
+// Challenge 1
+
+const students = [
+  { name: "Alice", scores: [80, 90, 100] },
+  { name: "Bob", scores: [50, 60, 70] },
+  { name: "Charlie", scores: [30, 40, 20] }
+];
+
+const processedStudents = students.map(student => {
+  const totalScore = student.scores.reduce((sum, score) => sum + score, 0);
+  const average = totalScore / student.scores.length;
+  const isPassed = average >= 50;
+  return { ...student, average: average, passed: isPassed };
+});
+
+const topStudent = processedStudents.reduce((max, student) => {
+    return (student.average > max.average) ? student : max;
+}, processedStudents[0]);
+
+console.log(`${topStudent.name}: ${topStudent.average}`);
+
+
+
+
+// Challenge 2
+
+const cart = [
+  { id: 1, name: "Laptop", price: 900, quantity: 1 },
+  { id: 2, name: "Mouse", price: 50, quantity: 2 },
+  { id: 3, name: "Keyboard", price: 100, quantity: 1 }
+];
+
+let totalPrice = cart.reduce((sum, item) => {
+    return sum + (item.price * item.quantity);
+}, 0);
+
+if (totalPrice > 100) {
+    totalPrice = totalPrice - (totalPrice * 0.10);
+}
+
+const mostExpensive = cart.reduce((max, item) => {
+    return (item.price > max.price) ? item : max;
+}, cart[0]);
+
+console.log(`Umumiy narx: $${totalPrice}`);
+console.log(`Eng qimmati: ${mostExpensive.name}`);
+
+
+// Challenge 3
+
+let products = [
+  { id: 1, name: "Laptop", price: 1200, stock: 10 },
+  { id: 2, name: "Phone", price: 700, stock: 15 }
+];
+
+const addProduct = (newProduct) => {
+    products = [...products, newProduct];
+};
+
+const updateStock = (id, newStock) => {
+    products = products.map(item => 
+        item.id === id ? { ...item, stock: newStock } : item
+    );
+};
+
+const deleteProduct = (id) => {
+    products = products.filter(item => item.id !== id);
+};
+
+const findProduct = (name) => {
+    return products.find(item => item.name === name);
+};
+
+addProduct({ id: 3, name: "Tablet", price: 300, stock: 5 });
+updateStock(2, 20);
+deleteProduct(1);
+console.log(findProduct("Tablet")); 
+
+
+
+
+// Challenge 4
+
+const posts = [
+  { 
+    author: "Alice", 
+    likes: 100, 
+    comments: [ {user: "Jon", msg: "Nice!"}, {user: "Doe", msg: "Cool"} ],
+    shares: 5 
+  },
+  { 
+    author: "Bob", 
+    likes: 200, 
+    comments: [ {user: "Sam", msg: "Wow"} ],
+    shares: 10 
+  }
+];
+
+const mostLikedPost = posts.reduce((max, post) => {
+    return (post.likes > max.likes) ? post : max;
+}, posts[0]);
+
+const totalEngagement = posts.reduce((sum, post) => {
+    const postEngagement = post.likes + post.comments.length + post.shares;
+    return sum + postEngagement;
+}, 0);
+
+console.log(`Ko'p like yig'gan: ${mostLikedPost.author}`);
+console.log(`Umumiy: ${totalEngagement}`);
+
+
+// Challenge 5
+
+
+const teams = [
+  { name: "Team A", wins: 5, losses: 2, points: 15, goalsScored: 12, goalsConceded: 5 },
+  { name: "Team B", wins: 6, losses: 1, points: 18, goalsScored: 15, goalsConceded: 3 },
+  { name: "Team C", wins: 4, losses: 3, points: 12, goalsScored: 8, goalsConceded: 10 }
+];
+
+const rankedTeams = [...teams].sort((team1, team2) => {
+    return team2.points - team1.points;
+});
+
+const bestPerformingTeam = rankedTeams[0];
+
+console.log("Jamoalar:", rankedTeams.map(t => t.name));
+console.log(`eNG YAXSHI JAMOA: ${bestPerformingTeam.name} with ${bestPerformingTeam.points} points.`);
+
+
+// Challenge 6
+
+const inventory = [
+  { itemName: "Laptop", category: "Electronics", stock: 5 },
+  { itemName: "Phone", category: "Electronics", stock: 10 },
+  { itemName: "Desk", category: "Furniture", stock: 2 },
+  { itemName: "Chair", category: "Furniture", stock: 20 }
+];
+
+function totalStockByCategory(categoryName) {
+  return inventory
+    .filter(item => item.category === categoryName)
+    .reduce((sum, item) => sum + item.stock, 0);
+}
+
+function lowStockAlert(limitThreshold) {
+    const lowItems = inventory.filter(item => item.stock < limitThreshold);
+    
+    if(lowItems.length > 0) {
+        lowItems.forEach(item => {
+            console.log(`⚠️ ALERT: ${item.itemName} is running low! Only ${item.stock} left.`);
+        });
+    } else {
+        console.log("All stocks are sufficient.");
+    }
+}
+
+console.log("Umumiy:", totalStockByCategory("Electronics"));
+lowStockAlert(6);
+
+</script>
+</body>
+
+</html>
