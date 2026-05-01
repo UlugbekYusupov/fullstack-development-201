@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3003";
+const BASE_URL = "http://localhost:3000";
 
 const navLinks = document.querySelectorAll(".nav-link[data-section]");
 const sections = document.querySelectorAll(".section");
@@ -70,13 +70,7 @@ async function loadProducts() {
   const tbody = document.getElementById("products-tbody");
   tbody.innerHTML = `<tr><td colspan="6" class="empty-row">Loading...</td></tr>`;
 
-  const response = await fetch(BASE_URL + "/api/products", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
+  const response = await fetch(`${BASE_URL}/api/products`);
   const data = await response.json();
 
   console.log(data);
