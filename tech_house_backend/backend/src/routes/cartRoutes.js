@@ -1,19 +1,20 @@
 import express from 'express';
+import {viewCartItem, addToCart, updateCartItem, removeCartItem} from "../controllers/cartController.js";
 const router = express.Router();
 
 // Savatdagi barcha mahsulotlarni ko'rish
-router.get('/', getCartItems);
+router.get('/', viewCartItem);
 
 // Savatga yangi mahsulot qo'shish
-router.post('/add', addToCart);
+router.post('/', addToCart);
 
 // Savatdagi mahsulot sonini yangilash (masalan, +1 yoki -1)
-router.put('/update/:id', updateCartItem);
+router.put('/:id', updateCartItem);
 
 // Savatdan bitta mahsulotni o'chirish
-router.delete('/remove/:id', removeFromCart);
+router.delete('/:id', removeCartItem);
 
 // Savatni butunlay tozalash
-router.delete('/clear', clearCart);
+//router.delete('/clear', clearCart);
 
 export default router;

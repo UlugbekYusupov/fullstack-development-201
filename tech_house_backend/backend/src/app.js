@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
-app.use("/api/carts", cartRoutes)
+app.use("/api/cart", cartRoutes)
 app.get("/", (req, res) => {
     res.json({ message: "API is running..." });
 });

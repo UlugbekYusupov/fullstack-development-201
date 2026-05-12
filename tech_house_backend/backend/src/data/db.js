@@ -12,6 +12,6 @@ export const products = [
         updatedAt:""
     },
 ];
-export const carts = [
+export const cartItems = [
     
 ]

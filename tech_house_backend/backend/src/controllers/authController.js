@@ -47,5 +47,5 @@
 
         const  token = jwt.sign({email}, "JWT Secret key", {expiresIn: "1h"})
 
-        return res.status(200).json({message: "Login successfully", token: token})
+        return res.status(200).json({message: "Login successfully", token: token, id: existingUser.id})
     }

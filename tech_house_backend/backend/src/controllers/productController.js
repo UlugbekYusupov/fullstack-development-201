@@ -2,7 +2,7 @@ import { products } from "../data/db.js";
 import { v4 as uuidv4 } from "uuid";
 
 export function listProducts(req, res) {
-  return res.status(200).json({count: products.count});
+  return res.status(200).json(products);
 }
 
 export function getSingleProduct(req, res) {
